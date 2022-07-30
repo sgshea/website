@@ -43,14 +43,31 @@
 (defn overview
   "Main content for the main page."
   []
-  [:div
-   [:h1 "This is my website, built in clojurescript"]
+  [:div {:class "container is-fluid"} 
+   [:div {:class "notification is-primary"}
+   [:h1 "Overview"]]
    [:p "I am a student at North Carolina State University studying computer science."]])
 
 (defn projects
   "Contains my projects."
   []
-  [:div {:class "container"}
-   ])
+  [:div {:class "container is-fluid"}
+   [:div {:class "notification is-primary"}
+    [:h2 "Projects Showcase"]]
+   [:p "These are my projects completed either in class or as personal learning projects"]
+   ; Project Section Template 3-box layout
+   [:div {:class "section"}
+    [:div {:class "notification is-primary"}
+     [:h3 "Project"]]
+    [:div {:class "tile is-ancestor"}
+     [:div {:class "tile is-4 is-vertical is-parent"}
+      [:div {:class "tile is-child box"}
+       [:h2 "Project"]]
+      [:div {:class "tile is-child box"}
+       [:h2 "Picture"]]]
+     [:div {:class "tile is-parent"}
+      [:div {:class "tile is-child box"}
+      [:p {:class "title"} "Description"]
+      [:p "Lorem Ipsum"]]]]]])
 
 
