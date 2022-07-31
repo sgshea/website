@@ -13,8 +13,8 @@
 
 ;; Main Page
 (defn main-page []
-  [:div
-   [content/top-nav]
+  [:div {:class "section"}
+   [content/top-nav] 
    [content/separator "overview"]
    [content/overview]
    [content/separator "projects"]
