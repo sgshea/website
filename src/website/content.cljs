@@ -29,14 +29,22 @@
      [:div {:class "navbar-start"}
       [:a {:class "navbar-item"
             :href "#overview"} "Overview"]
-      [:a {:class "navbar-item"
-           :href  "#projects"} "Projects"]
+      [:div {:class "navbar-item has-dropdown is-hoverable"}
+       [:a {:class "navbar-link"} "Projects"]
+       [:div {:class "navbar-dropdown"}
+        [:a {:class "navbar-item"
+             :href "#website-project"} "Website"]]]]
+     [:div {:class "navbar-end"}
       [:span {:class "navbar-item"}
        [:a {:class "button is-rounded is-outlined is-dark is-inverted"
             :href "https://github.com/sgshea/"}
         [:span {:class "icon"}
-         [:i {:class "fab fa-github"}]]
-        [:span "My Github"]]]]]]]
+         [:i {:class "fab fa-github"}]]]]
+      [:span {:class "navbar-item"}
+       [:a {:class "button is-rounded is-outlined is-dark is-inverted"
+            :href "https://www.linkedin.com/in/sammy-shea-7350aa1ab"}
+        [:span {:class "icon"}
+         [:i {:class "fab fa-linkedin"}]]]]]]]]
   )
 
 (defn overview
@@ -47,33 +55,18 @@
    [:h1 "About Me"]]
    [:p "I am a second-year student at North Carolina State University studying computer science."]])
 
-(defn projects
-  "Contains my projects."
+(defn website-project
   []
   [:div {:class "container"}
    [:div {:class "box"}
     [:h2 "Projects Showcase"]]
    [:p "These are my projects completed either in class or as personal learning projects"]
-   ; Project Section Template 3-box layout
-   [:div {:class "section"}
-    [:div {:class "notification is-primary"}
-     [:h3 "Project"]]
-    [:div {:class "tile is-ancestor"}
-     [:div {:class "tile is-4 is-vertical is-parent"}
-      [:div {:class "tile is-child box"}
-       [:h2 "Project"]]
-      [:div {:class "tile is-child box"}
-       [:h2 "Picture"]]]
-     [:div {:class "tile is-parent"}
-      [:div {:class "tile is-child box"}
-      [:p {:class "title"} "Description"]
-      [:p "Lorem Ipsum"]]]]]
    [:div {:class "section"}
      [:div {:class "tile is-ancestor"}
       [:div {:class "tile is-4 is-parent"}
        [:div {:class "tile is-child box"}
         [:h2 "Picture"]
-        [:figure {:class "image"}
+        [:span {:class "image is-32x32"}
          [:img {:src "images/clojurescript_logo.svg"}]]]]
       [:div {:class "tile is-parent"}
        [:div {:class "tile is-child box"}
@@ -93,9 +86,9 @@
            [:ul
             [:li [:dl
                   [:dt [:a {:href "https://clojurescript.org"} "ClojureScript"]]
-                  [:dd [:ul
-                        [:li "A varient of the functional language Clojure that compiles to JavaScript."]
-                        [:li "ClojureScript was used for this project as a stand-in for JavaScript as I was already learning Clojure at the time."]]]]]
+                   [:dd [:ul
+                         [:li "A varient of the functional language Clojure that compiles to JavaScript."]
+                         [:li "ClojureScript was used for this project as a stand-in for JavaScript as I was already learning Clojure at the time."]]]]]
             [:li [:dl
                   [:dt [:a {:href "https://reagent-project.github.io"} "Reagent"]]
                   [:dd [:ul

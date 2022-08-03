@@ -17,8 +17,8 @@
    [content/top-nav] 
    [content/separator "overview"]
    [content/overview]
-   [content/separator "projects"]
-   [content/projects]])
+   [content/separator "website-project"]
+   [content/website-project]])
 
 ;; System
 (defn mount-root []
