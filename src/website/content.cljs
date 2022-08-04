@@ -15,7 +15,7 @@
   [:nav {:class      "navbar is-fixed-top is-dark"
          :role       "navigation"
          :aria-label "main navigation"}
-   [:div {:class "container"}
+   [:div {:class "container"} 
     [:div {:class "navbar-brand"}
      [:a {:class "navbar-item"
           :href "/"} "Sammy Shea"]

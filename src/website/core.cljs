@@ -2,7 +2,6 @@
   (:require
    [reagent.core :as r]
    [reagent.dom :as d]
-   [clojure.string :as str]
    [website.content :as content]))
 
 ;; -------------------------
@@ -13,8 +12,8 @@
 
 ;; Main Page
 (defn main-page []
-  [:div {:class "section"}
-   [content/top-nav] 
+  [:div {:class "content"}
+   [content/top-nav]
    [content/separator "overview"]
    [content/overview]
    [content/separator "website-project"]
