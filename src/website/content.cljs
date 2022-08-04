@@ -12,7 +12,7 @@
 (defn top-nav
   "Top navigation bar with current page name and other pages."
   []
-  [:nav {:class      "navbar is-fixed-top is-primary"
+  [:nav {:class      "navbar is-fixed-top is-dark"
          :role       "navigation"
          :aria-label "main navigation"}
    [:div {:class "container"}
