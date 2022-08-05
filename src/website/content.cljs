@@ -12,7 +12,7 @@
 (defn top-nav
   "Top navigation bar with current page name and other pages."
   []
-  [:nav {:class      "navbar is-fixed-top is-dark"
+  [:nav {:class      "navbar is-fixed-top"
          :role       "navigation"
          :aria-label "main navigation"}
    [:div {:class "container"} 
@@ -50,8 +50,8 @@
 (defn overview
   "Main content for the main page."
   []
-  [:div {:class "container"} 
-   [:div {:class "box"}
+  [:div {:class "content"} 
+   [:div {:class "box has-text-centered"}
    [:h1 "About Me"]]
    [:p "I am a second-year student at North Carolina State University studying computer science."]])
 
@@ -63,11 +63,9 @@
    [:p "These are my projects completed either in class or as personal learning projects"]
    [:div {:class "section"}
      [:div {:class "tile is-ancestor"}
-      [:div {:class "tile is-4 is-parent"}
+      [:div {:class "tile is-parent"}
        [:div {:class "tile is-child box"}
-        [:h2 "Picture"]
-        [:span {:class "image is-32x32"}
-         [:img {:src "images/clojurescript_logo.svg"}]]]]
+        [:h2 "Picture"]]]
       [:div {:class "tile is-parent"}
        [:div {:class "tile is-child box"}
         [:div {:class "content"}
@@ -85,7 +83,10 @@
           [:dd
            [:ul
             [:li [:dl
-                  [:dt [:a {:href "https://clojurescript.org"} "ClojureScript"]]
+                  [:dt [:div {:class "level"}
+                        [:a {:href "https://clojurescript.org"} "ClojureScript"]
+                        [:span {:class "image is-48x48"}
+                         [:img {:src "images/clojurescript_logo.svg"}]]]]
                    [:dd [:ul
                          [:li "A varient of the functional language Clojure that compiles to JavaScript."]
                          [:li "ClojureScript was used for this project as a stand-in for JavaScript as I was already learning Clojure at the time."]]]]]

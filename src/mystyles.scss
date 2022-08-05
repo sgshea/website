@@ -6,26 +6,29 @@
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
-// Set your brand colors
-$purple: #8A4D76;
-$pink: #FA7C91;
-$brown: #757763;
-$beige-light: #D0D1CD;
-$beige-lighter: #EFF0EB;
+// gruvbox color scheme: https://github.com/morhetz/gruvbox
+// gruvbox primary colors
 
-// Update Bulma's global variables
-$family-sans-serif: "Nunito", sans-serif;
-$grey-dark: $brown;
-$grey-light: $beige-light;
-$primary: $purple;
-$link: $pink;
-$widescreen-enabled: false;
-$fullhd-enabled: false;
+$gb-red: #cc241d;
+$gb-green: #98971a;
+$gb-yellow: #d79921;
+$gb-blue: #458588;
+$gb-purple: #b16286;
+$gb-aqua: #689d6a;
 
-// Update some of Bulma's component variables
-$body-background-color: $beige-lighter;
-$control-border-width: 2px;
-$input-border-color: transparent;
-$input-shadow: none;
+// gruvbox dark specific
+$gbd-bg: #282828;
+$gbd-gray1: #a89984;
+$gbd-gray2: #928374;
+
+// gruvbox light specific
+$gbl-bg: #fbf1c7;
+$gbl-gray1: #7c6f64;
+$gbl-gray2: #928374;
+
+//$body-background-color: $gbl-bg;
+//$box-background-color: $gbl-gray2;
+$navbar-background-color: $gb-aqua;
+$navbar-menu-background-color: $gb-aqua;
 
 @import "../node_modules/bulma/bulma.sass";
