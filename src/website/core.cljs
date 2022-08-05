@@ -17,7 +17,9 @@
    [content/separator "overview"]
    [content/overview]
    [content/separator "website-project"]
-   [content/website-project]])
+   [content/website-project]
+   [content/separator "tic-tac-toe-project"]
+   [content/tic-tac-toe-project]])
 
 ;; System
 (defn mount-root []
