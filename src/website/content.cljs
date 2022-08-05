@@ -50,55 +50,47 @@
 (defn overview
   "Main content for the main page."
   []
-  [:div {:class "content"} 
-   [:div {:class "box has-text-centered"}
-   [:h1 "About Me"]]
-   [:p "I am a second-year student at North Carolina State University studying computer science."]])
+  [:div {:class "section hero is-danger"} 
+   [:div {:class "hero-body has-text-centered"}
+   [:p {:class "title"} "I am Sammy Shea"]]
+   [:p {:class "subtitle"}"Second year student at North Carolina State University studying computer science."]])
 
 (defn website-project
   []
   [:div {:class "container"}
-   [:div {:class "box"}
-    [:h2 "Projects Showcase"]]
-   [:p "These are my projects completed either in class or as personal learning projects"]
-   [:div {:class "section"}
-     [:div {:class "tile is-ancestor"}
-      [:div {:class "tile is-parent"}
-       [:div {:class "tile is-child box"}
-        [:h2 "Picture"]]]
-      [:div {:class "tile is-parent"}
-       [:div {:class "tile is-child box"}
-        [:div {:class "content"}
-         [:div {:class "columns"}
-          [:h1 {:class "column"} "Personal Website Project in ClojureScript"] 
-          [:a {:class "button is-rounded"
+   [:div {:class "section box"}
+     [:div {:class "tile is-ancestor"} ; ancestor tile
+      [:div {:class "tile is-parent is-vertical"}  ; left grouping
+       [:div {:class "tile is-child notification is-primary columns"}
+        [:p {:class "title column"} "Custom Portfolio Website"]
+        [:a {:class "button is-rounded is-dark is-inverted is-outlined"
                :href "https://github.com/sgshea/website"}
            [:span {:class "icon"}
             [:i {:class "fab fa-github"}]]]]
-         [:dl
-          [:dt [:h5 "Project Information"]]
-          [:dd "Made during summer 2022 to display personal portfolio and to explore ClojureScript."]
-          [:p]
-          [:dt [:h5 "Technologies Used"]]
-          [:dd
-           [:ul
-            [:li [:dl
-                  [:dt [:div {:class "level"}
-                        [:a {:href "https://clojurescript.org"} "ClojureScript"]
-                        [:span {:class "image is-48x48"}
-                         [:img {:src "images/clojurescript_logo.svg"}]]]]
-                   [:dd [:ul
-                         [:li "A varient of the functional language Clojure that compiles to JavaScript."]
-                         [:li "ClojureScript was used for this project as a stand-in for JavaScript as I was already learning Clojure at the time."]]]]]
-            [:li [:dl
-                  [:dt [:a {:href "https://reagent-project.github.io"} "Reagent"]]
-                  [:dd [:ul
-                        [:li "A library that provides an interface to use the popular JavaScript React.js library in plain ClojureScript syntax."]
-                        [:li "Reagent handles the basic parts of the website, including HTML and rendering. In a website that is interactable, Reagent would also manage state and complicated rendering."]]]
-                  [:li [:dt [:a {:href "https://bulma.io"} "Bulma"]]
-                   [:dd [:ul
-                         [:li "CSS library which provides many additional classes for styling HTML."]
-                         [:li "Used to create the layout of the website, including the navigation bar, headers, and tiles for project showcases."]]]]]]]]]
-                         ]]]]]])
+       [:div {:class "tile is-child notification is-warning content"}
+        [:p {:class "subtitle"} "Overview"]
+        [:p "Created to show off my work online in a presentable format!"]
+        [:ul
+         [:li [:span {:class "icon"} [:i {:class "fas fa-user"}]] "Personal Project"]
+         [:li [:span {:class "icon"} [:i {:class "fas fa-calendar"}]] "Created Summer 2022"]
+         [:li [:span {:class "icon"} [:i {:class "fas fa-code"}]] "Created in ClojureScript"]
+         ]]]
+      [:div {:class "tile is-parent is-vertical"} ; right grouping
+       [:div {:class "tile is-child notification is-success content"}
+        [:p {:class "subtitle has-text-centered"} "Technologies Used"] 
+        [:ul
+         [:li 
+          [:a {:href "https://clojurescript.org"} "ClojureScript"]
+          [:p "Used for the interactable parts such as the theme switcher!"]]
+         [:li
+          [:a {:href "https://reagent-project.github.io"} "Reagent"]
+          [:p "Manages state and provides React components!"]]
+         [:li
+          [:a {:href "https://bulma.io"} "Bulma"]
+          [:p "CSS framework used to build the layout, navbar, and more!"]]
+         [:li
+          [:a {:href "https://sass-lang.com"} "Sass"]
+          [:p "CSS extension to manage the color theming!"]]]]
+       ]]]])
 
 

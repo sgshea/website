@@ -31,4 +31,11 @@ $gbl-gray2: #928374;
 $navbar-background-color: $gb-aqua;
 $navbar-menu-background-color: $gb-aqua;
 
+$primary: $gb-aqua;
+$link: $gb-blue;
+$info: $gb-purple;
+$success: $gb-green;
+$warning: $gb-yellow;
+$danger: $gb-red;
+
 @import "../node_modules/bulma/bulma.sass";
