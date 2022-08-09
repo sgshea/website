@@ -1,6 +1,6 @@
 (ns website.core
   (:require
-   [reagent.core :as r]
+   ;[reagent.core :as r]
    [reagent.dom :as d]
    [website.content :as content]))
 

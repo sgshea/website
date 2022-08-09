@@ -6,6 +6,10 @@
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
+.carousel {
+    overflow: hidden;
+}
+
 // gruvbox color scheme: https://github.com/morhetz/gruvbox
 // gruvbox primary colors
 
@@ -39,3 +43,4 @@ $warning: $gb-yellow;
 $danger: $gb-red;
 
 @import "../node_modules/bulma/bulma.sass";
+@import "../node_modules/bulma-carousel/src/sass/index.sass"

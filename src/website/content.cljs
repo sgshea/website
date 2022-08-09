@@ -1,4 +1,25 @@
-(ns website.content)
+(ns website.content
+  (:require
+   [reagent.core :as reagent]
+   ["bulma-carousel/dist/js/bulma-carousel.min.js" :as bulma-carousel]))
+
+(defn carousel
+  []
+  (let [update (fn [comp]
+                 (.attach bulma-carousel "#main-carousel"
+                          (clj->js {:slidesToScroll 1 :slidesToShow 1 :loop true :autoplay true :infinite false})))]
+    (reagent/create-class
+     {:reagent-render
+      (fn []
+        [:div {:class "container notification is-dark"}
+          [:div {:id "main-carousel"
+                 :class "carousel"}
+          [:div {:class "item-1"} [:img {:src "images/ttt-image-1.png"}]]
+          [:div {:class "item-2"} [:img {:src "images/ttt-image-2.png"}]]
+          [:div {:class "item-3"} [:img {:src "images/ttt-image-3.png"}]]
+           ]])
+      :component-did-mount update
+      :component-did-update update})))
 
 (defn separator
   "Separates components. Takes id so the section is not hidden by menu."
@@ -59,7 +80,7 @@
 
 (defn website-project
   []
-  [:div {:class "container"}
+  [:div {:class "columns"}
    [:div {:class "section box"}
      [:div {:class "tile is-ancestor"} ; ancestor tile
       [:div {:class "tile is-parent is-vertical"}  ; left grouping
@@ -102,10 +123,10 @@
 
 (defn tic-tac-toe-project
   []
-  [:div {:class "container"}
+  [:div {:class "columns"}
    [:div {:class "section box"}
-    [:div {:class "tile is-ancestor"} ; ancestor tile
-     [:div {:class "tile is-parent is-vertical"}  ; left grouping
+    [:div {:class "tile is-ancestor is-vertical"} ; ancestor tile
+     [:div {:class "tile is-parent is-vertical"}  ; top grouping
       [:div {:class "tile is-child notification is-primary columns"}
        [:p {:class "title column"} "Tic-Tac-Toe"]
        [:a {:class "button is-rounded is-dark is-inverted is-outlined"
@@ -118,8 +139,10 @@
        [:ul
         [:li [:span {:class "icon"} [:i {:class "fas fa-user"}]] "Personal Project"]
         [:li [:span {:class "icon"} [:i {:class "fas fa-calendar"}]] "Created Summer 2022"]
-        [:li [:span {:class "icon"} [:i {:class "fas fa-code"}]] "Created in Clojure"]]]]
-     [:div {:class "tile is-parent is-vertical"} ; right grouping
+        [:li [:span {:class "icon"} [:i {:class "fas fa-code"}]] "Created in Clojure"]]]] 
+     [:div {:class "tile is-child"} ; carousel
+      [carousel]]
+     [:div {:class "tile is-parent is-vertical"} ; bottom grouping
       [:div {:class "tile is-child notification is-success content"}
        [:p {:class "subtitle has-text-centered"} "Technologies Used"]
        [:ul
@@ -132,3 +155,4 @@
          [:p "Library which wraps JavaFX in a declaritive, functional style similar to React/Reagent.
               This was the first time I really used any GUI library, and I tried to adhere to the model-view-controller
               design pattern by keeping most of the Clojure logic seperate from the GUI programming."]]]]]]]])
+
