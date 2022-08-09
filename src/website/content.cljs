@@ -4,19 +4,19 @@
    ["bulma-carousel/dist/js/bulma-carousel.min.js" :as bulma-carousel]))
 
 (defn carousel
-  []
+  [id img-1 img-2 img-3]
   (let [update (fn [comp]
-                 (.attach bulma-carousel "#main-carousel"
-                          (clj->js {:slidesToScroll 1 :slidesToShow 1 :loop true :autoplay true :infinite false})))]
+                 (.attach bulma-carousel (str "#" id)
+                          (clj->js {:slidesToScroll 1 :slidesToShow 1 :loop true :autoplay true})))]
     (reagent/create-class
      {:reagent-render
       (fn []
         [:div {:class "container notification is-dark"}
-          [:div {:id "main-carousel"
+          [:div {:id id
                  :class "carousel"}
-          [:div {:class "item-1"} [:img {:src "images/ttt-image-1.png"}]]
-          [:div {:class "item-2"} [:img {:src "images/ttt-image-2.png"}]]
-          [:div {:class "item-3"} [:img {:src "images/ttt-image-3.png"}]]
+          [:div {:class "item-1"} [:img {:src img-1}]]
+          [:div {:class "item-2"} [:img {:src img-2}]]
+          [:div {:class "item-3"} [:img {:src img-3}]]
            ]])
       :component-did-mount update
       :component-did-update update})))
@@ -141,7 +141,7 @@
         [:li [:span {:class "icon"} [:i {:class "fas fa-calendar"}]] "Created Summer 2022"]
         [:li [:span {:class "icon"} [:i {:class "fas fa-code"}]] "Created in Clojure"]]]] 
      [:div {:class "tile is-child"} ; carousel
-      [carousel]]
+      [(carousel "tic-tac-toe" "images/ttt-image-1.png" "images/ttt-image-2.png" "images/ttt-image-3.png")]]
      [:div {:class "tile is-parent is-vertical"} ; bottom grouping
       [:div {:class "tile is-child notification is-success content"}
        [:p {:class "subtitle has-text-centered"} "Technologies Used"]
