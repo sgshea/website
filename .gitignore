@@ -18,3 +18,4 @@ pom.xml.asc
 /.shadow-cljs
 /.lsp
 /.calva
+/node_modules
