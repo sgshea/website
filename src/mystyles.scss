@@ -42,5 +42,11 @@ $success: $gb-green;
 $warning: $gb-yellow;
 $danger: $gb-red;
 
-@import "../node_modules/bulma/bulma.sass";
-@import "../node_modules/bulma-carousel/src/sass/index.sass"
+@import "../node_modules/bulma/sass/utilities/_all.sass";
+@import "../node_modules/bulma/sass/layout/section.sass";
+@import "../node_modules/bulma/sass/grid/_all.sass";
+@import "../node_modules/bulma/sass/elements/_all.sass";
+@import "../node_modules/bulma/sass/components/navbar.sass";
+@import "../node_modules/bulma/sass/base/_all.sass";
+
+@import "../node_modules/bulma-carousel/src/sass/index.sass";
