@@ -84,7 +84,7 @@
    [:div {:class "sectcion hero is-warning"}
     [:div {:class "hero-body has-text-centered content columns"}
      [:div {:class "column"}
-      [:p {:class "subtitle"} "Skills & Interests"]
+      [:p {:class "subtitle"} "Experience Overview"]
       [:ul
        [:li [:span {:class "icon"} [:i {:class "fas fa-code"}]] "Programming Languages"
         [:ul
@@ -100,13 +100,13 @@
        [:li [:span {:class "icon"} [:i {:class "fas fa-terminal"}]] "Command Line"
         [:ul
          [:li [:span {:class "icon"} [:i {:class "devicon-git-plain"}]] "git/github" [:span {:class "icon"} [:i {:class "devicon-github-original"}]]]
-         [:li [:span {:class "icon"} [:i {:class "devicon-bash-plain"}]] "Bash/Zsh"]
-         [:li "ssh"]
-         [:li [:span {:class "icon"} [:i {:class "devicon-vim-plain"}]] "vim/neovim"]]]]]
+         [:li [:span {:class "icon"} [:i {:class "devicon-bash-plain"}]] "Bash/Zsh"] 
+         [:li [:span {:class "icon"} [:i {:class "devicon-vim-plain"}]] "vim/neovim"]
+         [:li "ssh"]]]]]
      [:div {:class "column"}
       [:ul
        [:li [:span {:class "icon"} [:i {:class "fas fa-laptop"}]] "Operating Systems"
-        [:ul 
+        [:ul
          [:li [:span {:class "icon"} [:i {:class "fab fa-linux"}]] "Linux"
           [:ul
            [:li [:span {:class "icon"} [:i {:class "fab fa-fedora"}]] "Fedora Linux"]
@@ -121,7 +121,23 @@
          [:li [:span {:class "icon"} [:i {:class "fab fa-html5"}]] "HTML"]
          [:li [:span {:class "icon"} [:i {:class "fab fa-css3"}]] "CSS3"]
          [:li [:span {:class "icon"} [:i {:class "fab fa-sass"}]] "Sass"]
-         [:li [:span {:class "icon"} [:i {:class "devicon-bulma-plain"}]] "Bulma"]]]]
+         [:li [:span {:class "icon"} [:i {:class "devicon-bulma-plain"}]] "Bulma"]]]]]]
+    [:div {:class "section hero is-link"}
+     [:div {:class "hero-body columns"}
+      [:div {:class "column content has-text-centered"}
+       [:p {:class "subtitle"} "Completed Computer Science Classes"]
+       [:ul
+        [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "CSC116 - Introduction to Computing - Java"]
+        [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "CSC216 - Software Development Fundamentals"]
+        [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "CSC217 - Software Development Fundamentals Lab"]
+        [:li "CSC226 - Discrete Mathematics for Computer Scientists"]]]
+      [:div {:class "column content has-text-centered"}
+       [:p {:class "subtitle"} "In Progress"]
+       [:ul
+        [:li "Fall 2022"
+         [:ul
+          [:li [:span {:class "icon"} [:i {:class "devicon-c-plain"}]] "C and Software Tools"]
+          [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "Data Structures and Algorithms"]]]]]
       ]]]])
 
 (defn website-project
@@ -131,18 +147,21 @@
      [:div {:class "tile is-ancestor"} ; ancestor tile
       [:div {:class "tile is-parent is-vertical"}  ; left grouping
        [:div {:class "tile is-child notification is-primary columns"}
-        [:p {:class "title column"} "Custom Portfolio Website"]
+        [:p {:class "title column"} 
+         "Portfolio Website"]
         [:a {:class "button is-rounded is-dark is-inverted is-outlined"
                :href "https://github.com/sgshea/website"}
            [:span {:class "icon"}
             [:i {:class "fab fa-github"}]]]]
        [:div {:class "tile is-child notification is-warning content"}
         [:p {:class "subtitle"} "Overview"]
-        [:p "Created to show off my work online in a presentable format!"]
+        [:p "Website created in order to present my personal projects and classwork.
+             Created in ClojureScript using Reagent to write HTML and CSS as well as
+             interactable parts such as image carousel and light/dark switcher."]
         [:ul
          [:li [:span {:class "icon"} [:i {:class "fas fa-user"}]] "Personal Project"]
          [:li [:span {:class "icon"} [:i {:class "fas fa-calendar"}]] "Created Summer 2022"]
-         [:li [:span {:class "icon"} [:i {:class "fas fa-code"}]] "Created in ClojureScript"]
+         [:li [:span {:class "icon"} [:i {:class "devicon-clojurescript-plain"}]] "Created in ClojureScript"]
          ]]]
       [:div {:class "tile is-parent is-vertical"} ; right grouping
        [:div {:class "tile is-child notification is-success content"}
@@ -155,12 +174,12 @@
                such as the theme switcher, and for writing HTML with Reagent, or CSS with Bulma."]]
          [:li
           [:a {:href "https://reagent-project.github.io"} "Reagent"]
-          [:p "Reagent is an interface between ClojureScript and React.js, it provided ways to easily create
-               the GUI using HTML and CSS, as well as manage the more complex state."]]
+          [:p "Reagent is an interface between ClojureScript and React.js, it provided ways to easily define
+               HTML and CSS in ClojureScript, as well as manage the more complex state."]]
          [:li
           [:a {:href "https://bulma.io"} "Bulma"]
-          [:p "Bulma is a pure CSS framework that provides many CSS classes to create a beautiful layout including
-               the navbar, and project showcases."]]
+          [:p "Bulma is a pure CSS framework that provides many CSS classes to create a responsive layout as well as
+               the navbar."]]
          [:li
           [:a {:href "https://sass-lang.com"} "Sass"]
           [:p "Sass is a CSS extension language which Bulma uses to manage variables,
@@ -174,18 +193,20 @@
     [:div {:class "tile is-ancestor is-vertical"} ; ancestor tile
      [:div {:class "tile is-parent is-vertical"}  ; top grouping
       [:div {:class "tile is-child notification is-primary columns"}
-       [:p {:class "title column"} "Tic-Tac-Toe"]
+       [:p {:class "title column"} 
+        "Tic-Tac-Toe Program"]
        [:a {:class "button is-rounded is-dark is-inverted is-outlined"
             :href "https://github.com/sgshea/tic-tac-toe"}
         [:span {:class "icon"}
          [:i {:class "fab fa-github"}]]]]
       [:div {:class "tile is-child notification is-warning content"}
        [:p {:class "subtitle"} "Overview"]
-       [:p "Created to learn Clojure, and explore GUI programming!"]
+       [:p "Tic-Tac-Toe game created with Clojure with additional feature of allowing user to redefine board size.
+            Cross platform using the Java Virtual Machine including Graphical User Interface made with Cljfx library."]
        [:ul
         [:li [:span {:class "icon"} [:i {:class "fas fa-user"}]] "Personal Project"]
         [:li [:span {:class "icon"} [:i {:class "fas fa-calendar"}]] "Created Summer 2022"]
-        [:li [:span {:class "icon"} [:i {:class "fas fa-code"}]] "Created in Clojure"]]]] 
+        [:li [:span {:class "icon"} [:i {:class "devicon-clojure-line"}]] "Created in Clojure"]]]] 
      [:div {:class "tile is-child"} ; carousel
       [(carousel "tic-tac-toe" "images/ttt-image-1.png" "images/ttt-image-2.png" "images/ttt-image-3.png")]]
      [:div {:class "tile is-parent is-vertical"} ; bottom grouping
@@ -195,12 +216,11 @@
         [:li
          [:a {:href "https://clojure.org"} "Clojure"]
          [:p "Clojure is a functional lisp that runs on the Java Virtual Machine (JVM).
-              This project was used to learn Clojure, the logic of the tic-tac-toe game was created in Clojure."]]
+              Game logic created as a learning experience in Clojure."]]
         [:li
          [:a {:href "https://github.com/cljfx/cljfx"} "Cljfx"]
          [:p "Library which wraps JavaFX in a declaritive, functional style similar to React/Reagent.
-              This was the first time I really used any GUI library, and I tried to adhere to the model-view-controller
-              design pattern by keeping most of the Clojure logic seperate from the GUI programming."]]]]]]]])
+              Cljfx used to provide a graphical interface after majority of game logic created for a command-line interface."]]]]]]]])
 
 (defn class-216
   []
@@ -217,7 +237,7 @@
             as well as finite state machines and recursion."]
        [:ul
         [:li [:span {:class "icon"} [:i {:class "fas fa-calendar"}]] "Completed Spring 2022"]
-        [:li [:span {:class "icon"} [:i {:class "fas fa-code"}]] "Java Programming Language"]]]]
+        [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "Java Programming Language"]]]]
       [:div {:class "tile is-parent"} ; middle grouping
        [:div {:class "tile is-child notification is-link content is-5"}
         [:p {:class "subtitle has-text-centered"} "Project 1 - Ticket Manager"]
@@ -272,7 +292,7 @@
             and testing in order to work within a team."]
        [:ul
         [:li [:span {:class "icon"} [:i {:class "fas fa-calendar"}]] "Completed Spring 2022"]
-        [:li [:span {:class "icon"} [:i {:class "fas fa-code"}]] "Java Programming Language"]]]]
+        [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "Java Programming Language"]]]]
      [:div {:class "tile is-parent"} ; middle grouping
       [:div {:class "tile is-child notification is-link content"}
        [:p {:class "subtitle has-text-centered"} "Project - Scheduler"]
