@@ -11,6 +11,7 @@ pom.xml.asc
 /resources/public/js
 /out
 /.repl
+public/js
 *.log
 /.env
 /.clj-kondo

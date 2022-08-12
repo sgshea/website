@@ -170,8 +170,8 @@
          [:li 
           [:a {:href "https://clojurescript.org"} "ClojureScript"]
           [:p "ClojureScript is a compiler to JavaScript for the functional language Clojure.
-               In the website ClojureScript was used for all of the coding, including interactable parts
-               such as the theme switcher, and for writing HTML with Reagent, or CSS with Bulma."]]
+               The website is built in ClojureScript, by writing HTML and CSS in ClojureScript using Reagent,
+               as well as parts requiring more complex interactability."]]
          [:li
           [:a {:href "https://reagent-project.github.io"} "Reagent"]
           [:p "Reagent is an interface between ClojureScript and React.js, it provided ways to easily define
