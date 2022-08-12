@@ -157,7 +157,7 @@
         [:p {:class "subtitle"} "Overview"]
         [:p "Website created in order to present my personal projects and classwork.
              Created in ClojureScript using Reagent to write HTML and CSS as well as
-             interactable parts such as image carousel and light/dark switcher."]
+             interactable parts such as the image carousel."]
         [:ul
          [:li [:span {:class "icon"} [:i {:class "fas fa-user"}]] "Personal Project"]
          [:li [:span {:class "icon"} [:i {:class "fas fa-calendar"}]] "Created Summer 2022"]
