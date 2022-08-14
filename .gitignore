@@ -8,10 +8,8 @@ pom.xml.asc
 *.class
 /.lein-*
 /.nrepl-port
-/resources/public/js
 /out
 /.repl
-public/js
 *.log
 /.env
 /.clj-kondo
@@ -19,3 +17,7 @@ public/js
 /.lsp
 /.calva
 /node_modules
+
+/resources/public/js
+public/js
+public/css/styles.css
