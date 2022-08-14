@@ -10,10 +10,10 @@ npx shadow-cljs browser-repl
 ```
 Watch for Sass scss changes
 ```
-sass --watch --no-source-map src/mystyles.scss:public/css/mystyles.css
+sass --watch --no-source-map src/styles.scss:public/css/styles.css
 ```
 ### Building for production
 ```
 npx shadow-cljs release app
-sass --no-source-map src/mystyles.scss:public/css/mystyles.css
+sass --no-source-map src/styles.scss:public/css/styles.css
 ```

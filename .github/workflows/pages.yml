@@ -19,6 +19,12 @@ jobs:
         run: |
           npm install
           npx shadow-cljs release app
+        
+      - name : Compile CSS from SCSS files
+        uses: gha-utilities/sass-build@v0.4.7
+        with:
+          source: ./src/mystyles.scss
+          destination: ./public/css/styles.css
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
