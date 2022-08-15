@@ -1,17 +1,17 @@
 (ns website.content
   (:require
-   [reagent.core :as reagent]
+   [reagent.core :as r]
    ["bulma-carousel/dist/js/bulma-carousel.min.js" :as bulma-carousel]))
 
 (defn carousel
   [id img-1 img-2 img-3]
-  (let [update (fn [comp]
+  (let [update (fn []
                  (.attach bulma-carousel (str "#" id)
                           (clj->js {:slidesToScroll 1 :slidesToShow 1 :loop true :autoplay true})))]
-    (reagent/create-class
+    (r/create-class
      {:reagent-render
       (fn []
-        [:div {:class "container notification is-dark"}
+        [:div {:class "container box is-dark"}
           [:div {:id id
                  :class "carousel"}
           [:div {:class "item-1"} [:img {:src img-1}]]
@@ -20,6 +20,7 @@
            ]])
       :component-did-mount update
       :component-did-update update})))
+
 
 (defn separator
   "Separates components. Takes id so the section is not hidden by menu."
@@ -31,7 +32,7 @@
 ; Navbar
 (defn top-nav
   "Top navigation bar with current page name and other pages."
-  []
+  [theme-button]
   [:nav {:class      "navbar is-fixed-top"
          :role       "navigation"
          :aria-label "main navigation"}
@@ -70,90 +71,102 @@
        [:a {:class "button is-rounded is-outlined is-dark is-inverted"
             :href "https://www.linkedin.com/in/sammy-shea-7350aa1ab"}
         [:span {:class "icon"}
-         [:i {:class "fab fa-linkedin"}]]]]]]]]
-  )
+         [:i {:class "fab fa-linkedin"}]]]]
+     ;;  [:span {:class "navbar-item"}
+     ;;   [theme-button]]
+      ]]]])
 
 (defn overview
   "Main content for the main page."
   []
   [:div {:class "container"}
-   [:div {:class "section hero is-danger"}
-    [:div {:class "hero-body has-text-centered"}
-     [:p {:class "title"} "Sammy Shea"]]
-    [:p {:class "subtitle"} "Second year student at North Carolina State University majoring in Computer Science."]]
-   [:div {:class "sectcion hero is-warning"}
-    [:div {:class "hero-body has-text-centered content columns"}
+   [:div {:class "section box"}
+     [:h1 {:class "title has-text-justified"} "Sammy Shea"]
+    [:h2 "Second year student at North Carolina State University majoring in Computer Science."]]
+   [:div {:class "container box content columns"}
      [:div {:class "column"}
-      [:p {:class "subtitle"} "Experience Overview"]
+      [:h1 {:style {:color "#fb4934"}}"Experience Overview"]
       [:ul
-       [:li [:span {:class "icon"} [:i {:class "fas fa-code"}]] "Programming Languages"
+       [:li [:p {:style {:color "#b8bb26"}} 
+             [:span {:class "icon"} [:i {:class "fas fa-code"}]] 
+             "Programming Languages"]
         [:ul
-         [:li [:li [:span {:class "icon"} [:i {:class "devicon-java-plain"}]] "Java"]
+         [:li [:p {:style {:color "#fabd2f"}}
+               [:span {:class "icon"} [:i {:class "devicon-java-plain"}]]
+               "Java"]]
           [:ul
            [:li "JUnit 5"]
            [:li "SpotBugs/PMD"]
-           [:li "JavaFX"]]]
-         [:li [:li [:span {:class "icon"} [:i {:class "devicon-clojure-line"}]] "Clojure"]
+           [:li "JavaFX"]]
+         [:li [:p {:style {:color "#fabd2f"}}
+               [:span {:class "icon"} [:i {:class "devicon-clojure-line"}]]
+               "Clojure"]
           [:ul
            [:li "Reagent"]
            [:li "Cljfx"]]]]]
-       [:li [:span {:class "icon"} [:i {:class "fas fa-terminal"}]] "Command Line"
+       [:li [:p {:style {:color "#b8bb26"}}
+             [:span {:class "icon"} [:i {:class "fas fa-terminal"}]]
+             "Command Line"]
         [:ul
          [:li [:span {:class "icon"} [:i {:class "devicon-git-plain"}]] "git/github" [:span {:class "icon"} [:i {:class "devicon-github-original"}]]]
          [:li [:span {:class "icon"} [:i {:class "devicon-bash-plain"}]] "Bash/Zsh"] 
          [:li [:span {:class "icon"} [:i {:class "devicon-vim-plain"}]] "vim/neovim"]
          [:li "ssh"]]]]]
-     [:div {:class "column"}
+     [:div {:class "column content has-text-centered"}
       [:ul
-       [:li [:span {:class "icon"} [:i {:class "fas fa-laptop"}]] "Operating Systems"
+       [:li [:p {:style {:color "#b8bb26"}}
+             [:span {:class "icon"} [:i {:class "fas fa-laptop"}]]
+             "Operating Systems"]
         [:ul
          [:li [:span {:class "icon"} [:i {:class "fab fa-linux"}]] "Linux"
           [:ul
            [:li [:span {:class "icon"} [:i {:class "fab fa-fedora"}]] "Fedora Linux"]
            [:li [:span {:class "icon"} [:i {:class "fab fa-linux"}]] "Windows Subsystem for Linux"]]]
          [:li [:span {:class "icon"} [:i {:class "fab fa-windows"}]] "Windows"]]]
-       [:li [:span {:class "icon"} [:i {:class "fas fa-keyboard"}]] "Editors"
+       [:li [:p {:style {:color "#b8bb26"}}
+             [:span {:class "icon"} [:i {:class "fas fa-keyboard"}]]
+             "Editors"]
         [:ul
          [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "Eclipse IDE"]
          [:li [:span {:class "icon"} [:i {:class "devicon-vscode-plain"}]] "Visual Studio Code"]]]
-       [:li [:span {:class "icon"} [:i {:class "fas fa-dragon"}]] "Other"
+       [:li [:p {:style {:color "#b8bb26"}}
+             [:span {:class "icon"} [:i {:class "fas fa-dragon"}]]
+             "Other"]
         [:ul
          [:li [:span {:class "icon"} [:i {:class "fab fa-html5"}]] "HTML"]
          [:li [:span {:class "icon"} [:i {:class "fab fa-css3"}]] "CSS3"]
          [:li [:span {:class "icon"} [:i {:class "fab fa-sass"}]] "Sass"]
          [:li [:span {:class "icon"} [:i {:class "devicon-bulma-plain"}]] "Bulma"]]]]]]
-    [:div {:class "section hero is-link"}
-     [:div {:class "hero-body columns"}
+    [:div {:class "container box columns"} 
       [:div {:class "column content has-text-centered"}
-       [:p {:class "subtitle"} "Completed Computer Science Classes"]
+       [:h3 {:style {:color "#fb4934"}} "Completed Computer Science Courses"]
        [:ul
         [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "CSC116 - Introduction to Computing - Java"]
         [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "CSC216 - Software Development Fundamentals"]
         [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "CSC217 - Software Development Fundamentals Lab"]
         [:li "CSC226 - Discrete Mathematics for Computer Scientists"]]]
       [:div {:class "column content has-text-centered"}
-       [:p {:class "subtitle"} "In Progress"]
+       [:h4 {:style {:color "#8ec07c"}} "In Progress Courses"]
        [:ul
         [:li "Fall 2022"
          [:ul
           [:li [:span {:class "icon"} [:i {:class "devicon-c-plain"}]] "C and Software Tools"]
           [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "Data Structures and Algorithms"]]]]]
-      ]]]])
+      ]])
 
 (defn website-project
   []
-  [:div {:class "columns"}
+  [:div {:class "container columns"}
    [:div {:class "section box"}
      [:div {:class "tile is-ancestor"} ; ancestor tile
       [:div {:class "tile is-parent is-vertical"}  ; left grouping
-       [:div {:class "tile is-child notification is-primary columns"}
-        [:p {:class "title column"} 
-         "Portfolio Website"]
+       [:div {:class "tile is-child box columns"}
+        [:h1 {:class "title column"} "Portfolio Website"]
         [:a {:class "button is-rounded is-dark is-inverted is-outlined"
                :href "https://github.com/sgshea/website"}
            [:span {:class "icon"}
             [:i {:class "fab fa-github"}]]]]
-       [:div {:class "tile is-child notification is-warning content"}
+       [:div {:class "tile is-child content box"}
         [:p {:class "subtitle"} "Overview"]
         [:p "Website created in order to present my personal projects and classwork.
              Created in ClojureScript using Reagent to write HTML and CSS as well as
@@ -164,7 +177,7 @@
          [:li [:span {:class "icon"} [:i {:class "devicon-clojurescript-plain"}]] "Created in ClojureScript"]
          ]]]
       [:div {:class "tile is-parent is-vertical"} ; right grouping
-       [:div {:class "tile is-child notification is-success content"}
+       [:div {:class "tile is-child box is-success content"}
         [:p {:class "subtitle has-text-centered"} "Technologies Used"] 
         [:ul
          [:li 
@@ -188,18 +201,18 @@
 
 (defn tic-tac-toe-project
   []
-  [:div {:class "columns"}
+  [:div {:class "container columns"}
    [:div {:class "section box"}
     [:div {:class "tile is-ancestor is-vertical"} ; ancestor tile
      [:div {:class "tile is-parent is-vertical"}  ; top grouping
-      [:div {:class "tile is-child notification is-primary columns"}
+      [:div {:class "tile is-child box is-primary columns"}
        [:p {:class "title column"} 
         "Tic-Tac-Toe Program"]
        [:a {:class "button is-rounded is-dark is-inverted is-outlined"
             :href "https://github.com/sgshea/tic-tac-toe"}
         [:span {:class "icon"}
          [:i {:class "fab fa-github"}]]]]
-      [:div {:class "tile is-child notification is-warning content"}
+      [:div {:class "tile is-child box is-warning content"}
        [:p {:class "subtitle"} "Overview"]
        [:p "Tic-Tac-Toe game created with Clojure with additional feature of allowing user to redefine board size.
             Cross platform using the Java Virtual Machine including Graphical User Interface made with Cljfx library."]
@@ -210,7 +223,7 @@
      [:div {:class "tile is-child"} ; carousel
       [(carousel "tic-tac-toe" "images/ttt-image-1.png" "images/ttt-image-2.png" "images/ttt-image-3.png")]]
      [:div {:class "tile is-parent is-vertical"} ; bottom grouping
-      [:div {:class "tile is-child notification is-success content"}
+      [:div {:class "tile is-child box is-success content"}
        [:p {:class "subtitle has-text-centered"} "Technologies Used"]
        [:ul
         [:li
@@ -228,9 +241,9 @@
    [:div {:class "section box"}
     [:div {:class "tile is-ancestor is-vertical"} ; ancestor tile
      [:div {:class "tile is-parent is-vertical"}  ; top grouping
-      [:div {:class "tile is-child notification is-danger columns title"}
-       [:span {:class "icon"} [:i {:class "fas fa-graduation-cap"}]] "CSC216 - Software Development Fundamentals"]
-      [:div {:class "tile is-child notification is-warning content"}
+      [:div {:class "tile is-child box columns title"} 
+       "CSC216 - Software Development Fundamentals"]
+      [:div {:class "tile is-child box content"}
        [:p {:class "subtitle"} "Overview"]
        [:p "Second semester programming course at NC State Universiy. This class was is in the Java programming language, and explored
             the Object-oriented programming paradigm. Linear data structures such as array-lists and linked-lists were a heavy focus
@@ -239,21 +252,21 @@
         [:li [:span {:class "icon"} [:i {:class "fas fa-calendar"}]] "Completed Spring 2022"]
         [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "Java Programming Language"]]]]
       [:div {:class "tile is-parent"} ; middle grouping
-       [:div {:class "tile is-child notification is-link content is-5"}
+       [:div {:class "tile is-child box content is-5"}
         [:p {:class "subtitle has-text-centered"} "Project 1 - Ticket Manager"]
         [:p "The first project involved creating a finite state machine for a Ticket Manager system.
             The work done by the student involved creating the finite state machine for the issues as they are transfered from a new issue to a closed issue."]
         [:ul
          [:li "The issues were represented as subclasses and used polymorphism to be handled by a IssueManager class."]]]
        [:div {:class "tile is-child"}] ; dummy tile in between projects
-       [:div {:class "tile is-child notification is-link content is-5"}
+       [:div {:class "tile is-child box content is-5"}
         [:p {:class "subtitle has-text-centered"} "Project 2 - Task List"]
         [:p "The Tasks project involved handling lists of tasks by adding, moving, deleting, and exporting them."]
         [:ul
          [:li "Tasks were represented in a custom array-list, while task lists were represented as a custom sorted linked-list."]
          [:li "This project was very focused on interactions of array and linked-lists in a study of Java collections."]]]]
      [:div {:class "tile is-parent is-vertical"} ; bottom grouping
-      [:div {:class "tile is-child notification is-success content"}
+      [:div {:class "tile is-child box content"}
        [:p {:class "subtitle has-text-centered"} "Technologies Used"]
        [:ul
         [:li "Software Development"
@@ -282,9 +295,9 @@
    [:div {:class "section box"}
     [:div {:class "tile is-ancestor is-vertical"} ; ancestor tile
      [:div {:class "tile is-parent is-vertical"}  ; top grouping
-      [:div {:class "tile is-child notification is-danger columns title"}
-       [:span {:class "icon"} [:i {:class "fas fa-graduation-cap"}]] "CSC217 - Software Development Fundamentals Lab"]
-      [:div {:class "tile is-child notification is-warning content"}
+      [:div {:class "tile is-child box columns title"}
+       "CSC217 - Software Development Fundamentals Lab"]
+      [:div {:class "tile is-child box content"}
        [:p {:class "subtitle"} "Overview"]
        [:p "This Lab accompanied CSC216 - Software Development Fundamentals. A single semester-long project was worked on in the lab
             with a team of 3-4, though the teams were randomized every 4 weeks, for a total of 3 different teams on the same project.
@@ -294,7 +307,7 @@
         [:li [:span {:class "icon"} [:i {:class "fas fa-calendar"}]] "Completed Spring 2022"]
         [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "Java Programming Language"]]]]
      [:div {:class "tile is-parent"} ; middle grouping
-      [:div {:class "tile is-child notification is-link content"}
+      [:div {:class "tile is-child box content"}
        [:p {:class "subtitle has-text-centered"} "Project - Scheduler"]
        [:p "The lab's project was a scheduler, with the ability to add users, enroll them in classes, setup instructors, and export/import saved schedules."]
        [:ul
