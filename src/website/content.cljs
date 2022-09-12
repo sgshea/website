@@ -59,8 +59,7 @@
              :href "#tic-tac-toe-project"} "Tic-Tac-Toe"]
         [:a {:class "navbar-item"
              :href "#class-216"} "CSC216 - Software Development"]
-        [:a {:class "navbar-item"
-             :href "#class-216"} "CSC217 - Lab"]]]]
+        ]]]
      [:div {:class "navbar-end"}
       [:span {:class "navbar-item"}
        [:a {:class "button is-rounded is-outlined is-dark is-inverted"
@@ -144,59 +143,54 @@
         [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "CSC116 - Introduction to Computing - Java"]
         [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "CSC216 - Software Development Fundamentals"]
         [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "CSC217 - Software Development Fundamentals Lab"]
-        [:li "CSC226 - Discrete Mathematics for Computer Scientists"]]]
+        [:li [:span {:class "icon"} [:i {:class "fas fa-brain"}]] "CSC226 - Discrete Mathematics for Computer Scientists"]]]
       [:div {:class "column content has-text-centered"}
        [:h4 {:style {:color "#8ec07c"}} "In Progress Courses"]
        [:ul
         [:li "Fall 2022"
          [:ul
           [:li [:span {:class "icon"} [:i {:class "devicon-c-plain"}]] "C and Software Tools"]
-          [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "Data Structures and Algorithms"]]]]]
+          [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "Data Structures and Algorithms"]
+          [:li [:span {:class "icon"} [:i {:class "fas fa-brain"}]] "Automata, Grammars, and Computability"]]]]]
       ]])
 
 (defn website-project
   []
   [:div {:class "container columns"}
    [:div {:class "section box"}
-     [:div {:class "tile is-ancestor"} ; ancestor tile
+     [:div {:class "tile is-ancestor is-vertical"} ; ancestor tile 
       [:div {:class "tile is-parent is-vertical"}  ; left grouping
        [:div {:class "tile is-child box columns"}
         [:h1 {:class "title column"} "Portfolio Website"]
         [:a {:class "button is-rounded is-dark is-inverted is-outlined"
-               :href "https://github.com/sgshea/website"}
-           [:span {:class "icon"}
-            [:i {:class "fab fa-github"}]]]]
+             :href "https://github.com/sgshea/website"}
+         [:span {:class "icon"}
+          [:i {:class "fab fa-github"}]]]]
        [:div {:class "tile is-child content box"}
         [:p {:class "subtitle"} "Overview"]
         [:p "Website created in order to present my personal projects and classwork.
-             Created in ClojureScript using Reagent to write HTML and CSS as well as
-             interactable parts such as the image carousel."]
+             I used ClojureScript for this project as I was recently learning Clojure and interested in trying it's web capabilities and ecosystem such as Reagent."]
         [:ul
          [:li [:span {:class "icon"} [:i {:class "fas fa-user"}]] "Personal Project"]
          [:li [:span {:class "icon"} [:i {:class "fas fa-calendar"}]] "Created Summer 2022"]
-         [:li [:span {:class "icon"} [:i {:class "devicon-clojurescript-plain"}]] "Created in ClojureScript"]
-         ]]]
+         [:li [:span {:class "icon"} [:i {:class "devicon-clojurescript-plain"}]] "Created in ClojureScript"]]]]
       [:div {:class "tile is-parent is-vertical"} ; right grouping
        [:div {:class "tile is-child box is-success content"}
         [:p {:class "subtitle has-text-centered"} "Technologies Used"] 
         [:ul
          [:li 
           [:a {:href "https://clojurescript.org"} "ClojureScript"]
-          [:p "ClojureScript is a compiler to JavaScript for the functional language Clojure.
-               The website is built in ClojureScript, by writing HTML and CSS in ClojureScript using Reagent,
-               as well as parts requiring more complex interactability."]]
+          [:p "ClojureScript is Clojure compiled to JavaScript, allowing it to be used for web development."]]
          [:li
           [:a {:href "https://reagent-project.github.io"} "Reagent"]
           [:p "Reagent is an interface between ClojureScript and React.js, it provided ways to easily define
                HTML and CSS in ClojureScript, as well as manage the more complex state."]]
          [:li
           [:a {:href "https://bulma.io"} "Bulma"]
-          [:p "Bulma is a pure CSS framework that provides many CSS classes to create a responsive layout as well as
-               the navbar."]]
+          [:p "Bulma is pure CSS framework, providing nice and responsive elements such as the navbar and other elements."]]
          [:li
           [:a {:href "https://sass-lang.com"} "Sass"]
-          [:p "Sass is a CSS extension language which Bulma uses to manage variables,
-               and is how the website's theme colors are defined."]]]]
+          [:p "Sass is a CSS extension, giving a good way to define more complex variables for colors and elements."]]]]
        ]]]])
 
 (defn tic-tac-toe-project
@@ -245,74 +239,26 @@
        "CSC216 - Software Development Fundamentals"]
       [:div {:class "tile is-child box content"}
        [:p {:class "subtitle"} "Overview"]
-       [:p "Second semester programming course at NC State Universiy. This class was is in the Java programming language, and explored
-            the Object-oriented programming paradigm. Linear data structures such as array-lists and linked-lists were a heavy focus
-            as well as finite state machines and recursion."]
+       [:p "Second semester programming course, this helped me develop skills in more advanced topics.
+            The course focused on object-oriented concepts such as inheritance and encapsulation. Other topics such as
+            basic collections like array-based and linked lists were also explored."]
        [:ul
         [:li [:span {:class "icon"} [:i {:class "fas fa-calendar"}]] "Completed Spring 2022"]
         [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "Java Programming Language"]]]]
       [:div {:class "tile is-parent"} ; middle grouping
        [:div {:class "tile is-child box content is-5"}
-        [:p {:class "subtitle has-text-centered"} "Project 1 - Ticket Manager"]
-        [:p "The first project involved creating a finite state machine for a Ticket Manager system.
-            The work done by the student involved creating the finite state machine for the issues as they are transfered from a new issue to a closed issue."]
-        [:ul
-         [:li "The issues were represented as subclasses and used polymorphism to be handled by a IssueManager class."]]]
+        [:p {:class "subtitle has-text-centered"} "Class Projects"]
+        [:ol
+         [:li "Ticket Manager project using finite state machine to handle ticket transitions.
+               Focus on object oriented concepts such as polymorphism and subclasses for the finite state machine."]
+         [:li "Task List project involving a notebook with lists of tasks. Different custom collections such as array-based
+               and linked-lists to manage tasks and lists of task lists with efficiency."]]]
        [:div {:class "tile is-child"}] ; dummy tile in between projects
        [:div {:class "tile is-child box content is-5"}
-        [:p {:class "subtitle has-text-centered"} "Project 2 - Task List"]
-        [:p "The Tasks project involved handling lists of tasks by adding, moving, deleting, and exporting them."]
+        [:p {:class "subtitle has-text-centered"} "CSC217 Lab"]
+        [:p "Lab accompanying the class involving a single semester-long project. The lab project was done within a team of
+             3-4, with teams changed every 4 weeks."]
         [:ul
-         [:li "Tasks were represented in a custom array-list, while task lists were represented as a custom sorted linked-list."]
-         [:li "This project was very focused on interactions of array and linked-lists in a study of Java collections."]]]]
-     [:div {:class "tile is-parent is-vertical"} ; bottom grouping
-      [:div {:class "tile is-child box content"}
-       [:p {:class "subtitle has-text-centered"} "Technologies Used"]
-       [:ul
-        [:li "Software Development"
-         [:ul
-          [:li "Eclipse Integrated Development Environment"
-           [:p "In this class we used the Eclipse IDE for Java development. Over the semester many features and plugins
-                of Eclipse were used to debug, analyze, and run code."]]
-          [:li "GitHub"
-           [:p "Projects were stored on GitHub for version control."]]
-          [:li "Project Design"
-           [:p "Both major projects required design stages with UML class diagrams and design proposals."]]]]
-        [:li "Software Testing"
-         [:ul
-          [:li "JUnit"
-           [:p "Unit testing was done through the JUnit 5 Java testing framework. Test-driven
-                development was encouraged through code coverage requirements."]]
-          [:li "Static Analysis"
-           [:p "Static analysis was done through the SpotBugs static code analyzer and PMD source code analyzer."]]
-          [:li "Jenkins Continuous Integration"
-           [:p "A Teaching Staff Jenkins server was used to test and grade submissions through GitHub."]]]]]]]
+         [:li "Similar topics as class: Exploring applications of inheritance and polymorphism, and custom collections."]
+         [:li "Focus on software development best practices such as collabrative design documents, documentation, pair programming, and collaboration with git."]]]]
     ]]])
-
-(defn class-217
-  []
-  [:div {:class "columns"}
-   [:div {:class "section box"}
-    [:div {:class "tile is-ancestor is-vertical"} ; ancestor tile
-     [:div {:class "tile is-parent is-vertical"}  ; top grouping
-      [:div {:class "tile is-child box columns title"}
-       "CSC217 - Software Development Fundamentals Lab"]
-      [:div {:class "tile is-child box content"}
-       [:p {:class "subtitle"} "Overview"]
-       [:p "This Lab accompanied CSC216 - Software Development Fundamentals. A single semester-long project was worked on in the lab
-            with a team of 3-4, though the teams were randomized every 4 weeks, for a total of 3 different teams on the same project.
-            This helped teach additional concepts such as pair programming, and put more importance on collaborative tools such as GitHub, documentation,
-            and testing in order to work within a team."]
-       [:ul
-        [:li [:span {:class "icon"} [:i {:class "fas fa-calendar"}]] "Completed Spring 2022"]
-        [:li [:span {:class "icon"} [:i {:class "fab fa-java"}]] "Java Programming Language"]]]]
-     [:div {:class "tile is-parent"} ; middle grouping
-      [:div {:class "tile is-child box content"}
-       [:p {:class "subtitle has-text-centered"} "Project - Scheduler"]
-       [:p "The lab's project was a scheduler, with the ability to add users, enroll them in classes, setup instructors, and export/import saved schedules."]
-       [:ul
-        [:li "Many of the same technologies were used as in CSC216, and the lab was focused on implementing each week's lecture topics."
-         [:ul
-          [:li "Object Oriented design such as inheritance, abstract/interface classes, and polymorphism was explored."]
-          [:li "Software Development design was used heavily in collaboration with frequent requirements analysis, implmentations, and testing."]]]]]]
-     ]]])
