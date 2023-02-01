@@ -1,41 +1,30 @@
 (ns website.core
-  (:require
-   [reagent.core :as r]
-   [reagent.dom :as d]
-   [website.content :as content]))
+    (:require
+     [reagent.core :as r]
+     [reagent.dom :as d]
+     [reagent-mui.colors :as colors]
+     [reagent-mui.styles :as styles]
+     [reagent-mui.material.css-baseline :refer [css-baseline]]
+     [website.home :as homepage]))
 
 ;; -------------------------
-;; State
-(def !theme
-  (r/atom "dark"))
+;; Views
 
-(defn switch-theme
-  []
-  [:a {:class "button is-rounded is-outlined is-dark is-inverted"
-       :on-click #(swap! !theme (fn []
-                                  (if (= @!theme "dark")
-                                    "light"
-                                    "dark")))} @!theme
-   [:span {:class "icon"}
-    [:i {:class "fas fa-cloud-sun"}]]])
+;; Theme
+(def custom-theme
+  {:palette {:mode "dark"}})
 
-;; Main Page
-(defn main-page []
-  [:div.dark-theme {:class "container"}
-   [content/top-nav switch-theme]
-   [content/separator "overview"]
-   [content/overview]
-   [content/separator "website-project"]
-   [content/website-project]
-   [content/separator "tic-tac-toe-project"]
-   [content/tic-tac-toe-project]
-   [content/separator "class-216"]
-   [content/class-216]
-   ])
+(defn home-page []
+  [:<>
+   [css-baseline]
+   [styles/theme-provider (styles/create-theme custom-theme)
+    [homepage/main]]])
 
-;; System
+;; -------------------------
+;; Initialize app
+
 (defn mount-root []
-  (d/render [main-page] (.getElementById js/document "app")))
+  (d/render [home-page] (.getElementById js/document "app")))
 
 (defn ^:export init! []
   (mount-root))
