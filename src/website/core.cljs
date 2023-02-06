@@ -12,12 +12,13 @@
 
 ;; Theme
 (def custom-theme
-  {:palette {:mode "dark"}})
+  {:palette {:mode :light
+             }})
 
 (defn home-page []
   [:<>
-   [css-baseline]
    [styles/theme-provider (styles/create-theme custom-theme)
+    [css-baseline]
     [homepage/main]]])
 
 ;; -------------------------
