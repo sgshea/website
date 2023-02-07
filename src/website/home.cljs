@@ -37,7 +37,7 @@
            :on-click (fn [e]
                       (reset! anchorElNav (event-value e)))
            :sx {:my 2
-                :color "white"
+                :color "text.secondary"
                 :display "block"}}
    page-name])
 
@@ -60,7 +60,7 @@
                         :fontFamily "monospace"
                         :fontWeight 700
                         :textDecoration "none"
-                        :color "inherit"}}
+                        :color "text.primary"}}
        "Sammy Shea"]
       [box {:sx {:flexGrow 1
                  :display {:md "none"}}}
@@ -95,7 +95,7 @@
                         :fontFamily "monospace"
                         :fontWeight 700
                         :textDecoration "none"
-                        :color "inherit"}}
+                        :color "text.primary"}}
        "Sammy Shea"]
       [person {:sx {:display {:xs "flex"
                               :md "none"}

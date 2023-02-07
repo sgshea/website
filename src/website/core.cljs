@@ -6,7 +6,8 @@
      [reagent-mui.styles :as styles] 
      [reagent-mui.material.box :refer [box]]
      [website.home :as homepage]
-     [website.about :as about]))
+     [website.about :as about]
+     [website.projects :as projects]))
 
 ;; -------------------------
 ;; Views
@@ -19,10 +20,10 @@
 (defn home-page []
   [:<>
    [styles/theme-provider (styles/create-theme custom-theme)
-    [box {}
-      [homepage/menu-bar]
-      [about/about]
-     [about/technologies]]]])
+     [homepage/menu-bar]
+     [about/about]
+     [about/technologies]
+     [projects/projects]]])
 
 ;; -------------------------
 ;; Initialize app

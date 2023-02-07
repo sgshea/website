@@ -20,17 +20,21 @@
 
 (defn about
   []
-  [box {:sx {:bgcolor "primary.main"}}
-   [stack {:spacing 2
+  [box {:sx {:bgcolor "primary.main"}
+        :style {:width "50rem"}}
+   [stack {:spacing 5
            :alignItems "center"
-           :m 5}
+           :m 4}
+    [box]
     (stack-item [typography {:variant :h3
                              :m 3
                              :color "red"}
                  (first about-text)])
     (stack-item [typography {:variant :h6
                              :m 5}
-                 (second about-text)])]])
+                 (second about-text)] 
+               )
+    [box]]])
 
 ;; Technologies grid
 (def technologies-info
@@ -44,7 +48,7 @@
 (defn tech-item-category
   [item]
   [grid {:item true
-         :xs 6}
+         :xs 7}
    [paper {:elevation 5}
     [typography {:variant :h6
                  :m 2}
@@ -53,7 +57,7 @@
 (defn tech-item
   [item]
   [grid {:item true
-         :xs 4}
+         :xs 5}
    [paper {:elevation 2}
     [typography {:variant :subtitle1
                  :m 1}
@@ -73,5 +77,5 @@
   []
   [box {:sx {}}
    [stack {:spacing 1}
-    [box]
+    [:br]
     (map tech-category technologies-info)]])
