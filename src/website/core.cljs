@@ -3,9 +3,10 @@
      [reagent.core :as r]
      [reagent.dom :as d]
      [reagent-mui.colors :as colors]
-     [reagent-mui.styles :as styles]
-     [reagent-mui.material.css-baseline :refer [css-baseline]]
-     [website.home :as homepage]))
+     [reagent-mui.styles :as styles] 
+     [reagent-mui.material.box :refer [box]]
+     [website.home :as homepage]
+     [website.about :as about]))
 
 ;; -------------------------
 ;; Views
@@ -18,8 +19,10 @@
 (defn home-page []
   [:<>
    [styles/theme-provider (styles/create-theme custom-theme)
-    [css-baseline]
-    [homepage/main]]])
+    [box {}
+      [homepage/menu-bar]
+      [about/about]
+     [about/technologies]]]])
 
 ;; -------------------------
 ;; Initialize app

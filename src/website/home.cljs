@@ -4,9 +4,6 @@
    [reagent-mui.material.typography :refer [typography]]
    [reagent-mui.material.box :refer [box]]
    [reagent-mui.material.container :refer [container]]
-   [reagent-mui.material.stack :refer [stack]]
-   [reagent-mui.material.card :refer [card]]
-   [reagent-mui.material.card-content :refer [card-content]]
    [reagent-mui.material.app-bar :refer [app-bar]]
    [reagent-mui.material.toolbar :refer [toolbar]]
    [reagent-mui.material.button :refer [button]]
@@ -20,6 +17,7 @@
   [e]
   (.. e -target -value))
 
+;; Below is the code for the app-bar
 (def pages
   ["About" "Projects" "Resume"])
 
@@ -106,8 +104,3 @@
                  :display {:xs "none"
                            :md "flex"}}}
        (map pages-button pages)]]]])
-
-(defn main
-  []
-  [menu-bar])
-
