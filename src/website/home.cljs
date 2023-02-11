@@ -44,7 +44,8 @@
 (defn menu-bar
   "Top bar for the pages"
   []
-  [app-bar {:enableColorOnDark true}
+  [app-bar {:enableColorOnDark true
+            :color "transparent"}
    [container {:maxWidth "x1"}
      [toolbar {:disableGutters true}
       [person {:sx {:display {:xs "none"

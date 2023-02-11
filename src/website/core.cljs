@@ -1,10 +1,10 @@
 (ns website.core
     (:require
-     [reagent.core :as r]
      [reagent.dom :as d]
      [reagent-mui.colors :as colors]
      [reagent-mui.styles :as styles] 
-     [reagent-mui.material.box :refer [box]]
+     [reagent-mui.material.css-baseline :refer [css-baseline]] 
+     [reagent-mui.material.grid :refer [grid]]
      [website.home :as homepage]
      [website.about :as about]
      [website.projects :as projects]))
@@ -13,17 +13,22 @@
 ;; Views
 
 ;; Theme
-(def custom-theme
-  {:palette {:mode :light
-             }})
+(def custom-theme {:palette {:primary colors/blue 
+                             :secondary colors/red}})
 
 (defn home-page []
-  [:<>
-   [styles/theme-provider (styles/create-theme custom-theme)
+  [:box {}
+    [:<>
+    [css-baseline]
+    [styles/theme-provider (styles/create-theme custom-theme)
+     [grid {:container true
+            :justify-content "center"}
+      [about/about]
+      [about/technologies]
+      ]
      [homepage/menu-bar]
-     [about/about]
-     [about/technologies]
-     [projects/projects]]])
+     [projects/projects]]]])
+
 
 ;; -------------------------
 ;; Initialize app

@@ -26,7 +26,7 @@
 (defn project-item 
   [project-info]
   [grid {:item true}
-   [card {:sx {:maxWidth 400}}
+   [card {:sx {}}
     [card-action-area
      [card-media {:component "img"
                   :height "200"
@@ -44,19 +44,14 @@
 (defn projects
   "Grid of projects"
   []
-  [container {:styles {}}
-    [box {:sx {:bgcolor "primary.main"}
-          :mt 10}
-    [typography {:variant :h4 
-                 :color "red"
-                 :textAlign "center"}
-      "Projects"]]
-    [box {:sx {:bgcolor "primary.main"}
-          :mt 15}
+  [container {}
+    [typography {:variant :h4
+                 :mt 5
+                 :text-align "center"}
+      "Projects"]
+    [box {:sx {:bgcolor ""}
+          :mt 5}
     [grid {:container true
             :spacing {:xs 2
-                      :md 3}
-            :columns {:xs 4
-                      :sm 8
-                      :md 12}}
+                      :md 2}}
       (map project-item project-information)]]])
