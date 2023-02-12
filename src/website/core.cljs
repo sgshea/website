@@ -24,10 +24,11 @@
      [grid {:container true
             :justify-content "center"}
       [about/about]
+      [projects/projects]
       [about/technologies]
       ]
      [homepage/menu-bar]
-     [projects/projects]]]])
+     ]]])
 
 
 ;; -------------------------
