@@ -30,7 +30,8 @@
   (let [id (project-info 0)
         info (project-info 1)]
     [grid {:item true
-          :xs 4}
+          :xs 12
+          :md 6}
     [card {:sx {:max-width 500}
            :variant "outlined"}
       [card-media {:sx {:height 300}
@@ -67,6 +68,6 @@
       "Personal Projects"]]
     [grid {:container true
            :spacing 1
-           :align-items "center"
+           :direction "row"
            }
       (map project-item projects-info)]])

@@ -21,7 +21,7 @@
 
 (defn about
   []
-  [box {:style {:width "60%"}}
+  [box {:style {:width "90%"}}
    [stack {:spacing 5
            :align-items "center"
            :m 4}
@@ -82,14 +82,13 @@
   [grid {:container true
          :spacing 1
          :align-items "center"
-         :justify-content "center"
-         :m 5}
+         :justify-content "center"}
    (tech-item-category (key items))
    (map tech-item (val items))])
 
 (defn technologies
   []
-  [box {:width "80%"
+  [box {:width "90%"
         :mt 10}
    [stack {:spacing 1
            :align-items "center"}
