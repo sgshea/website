@@ -16,7 +16,6 @@ pom.xml.asc
 /.env
 node_modules
 
-
 /.clj-kondo
 /.shadow-cljs
 /.lsp
