@@ -69,7 +69,7 @@
 (defn projects
   "Grid of projects"
   []
-  [container {}
+  [container {:id "projects"}
     [paper {:eleveation 5
             :xs 7}
      [typography {:variant :h3

@@ -11,7 +11,8 @@
    [reagent-mui.material.menu :refer [menu] :as menu-component]
    [reagent-mui.material.menu-item :refer [menu-item]]
    [reagent-mui.icons.menu :refer [menu] :rename {menu menu-icon}]
-   [reagent-mui.material.icon-button :refer [icon-button]]))
+   [reagent-mui.material.icon-button :refer [icon-button]]
+   [clojure.string :as str]))
 
 (defn event-value
   [e]
@@ -19,17 +20,19 @@
 
 ;; Below is the code for the app-bar
 (def pages
-  ["About" "Projects" "Resume"])
+  ["About" "Projects" "Skills"])
 
 (defonce anchorElNav (r/atom nil))
 
 (defn pages-item
   [page-name]
+  [:a {:href (str "#" (str/lower-case page-name))}
   [menu-item {:key page-name
               :on-click (fn [e]
                          (reset! anchorElNav (event-value e)))}
-   [typography {:textAlign "center"}
-    page-name]])
+      [typography {:textAlign "center"
+                   :color "text.primary"}
+        page-name]]])
 
 (defn pages-button
   [page-name]
@@ -38,8 +41,9 @@
                       (reset! anchorElNav (event-value e)))
            :sx {:my 2
                 :color "text.secondary"
-                :display "block"}}
-   page-name])
+                :display "block"}
+           :href (str "#" (str/lower-case page-name))}
+   page-name]) 
 
 (defn menu-bar
   "Top bar for the pages"
@@ -71,11 +75,13 @@
                      :aria-haspopup true
                      :on-click (fn []
                                 (reset! anchorElNav true))
-                     :color "inherit"}
+                     :color "inherit"
+                     :style {:margin-left "-12px"
+                             :margin-right "20px"}}
         [menu-icon]]
        [menu {:id "menu-appbar"
-              :anchorEl anchorElNav
-              :anchorOrigin {:vertical "bottom"
+              :anchor-el anchorElNav
+              :anchorOrigin {:vertical "top"
                              :horizontal "left"}
               :keepMounted true
               :transformOrigin {:vertical "top"
