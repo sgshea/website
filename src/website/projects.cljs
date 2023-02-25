@@ -23,7 +23,12 @@
                :short-desc "Tic-Tac-Toe implementation in Clojure using Cljfx for GUI."
                :image "images/ttt-image-2-small.png"
                :link "https://github.com/sgshea/tic-tac-toe"}
-               })
+   :pong {:title "Pong"
+          :last-updated "Feburary 2023"
+          :short-desc "Simple pong implementation in ClojureScript using the Quil processing library."
+          :image "images/pong-image-1-small.png"
+          :link "https://github.com/sgshea/cljsgames"
+          :interactive-link "https://sgshea.github.io/cljsgames/"}})
 
 (defn project-item
   [project-info]
@@ -53,7 +58,13 @@
       [card-actions
       [button {:size "small"
                :href (info :link)}
-        "GitHub"]]]]))
+        "GitHub"]
+       (if (info :interactive-link) 
+         [button {:size "small"
+                :href (info :interactive-link)}
+          "Interactive Link"]
+         nil)
+       ]]]))
 
 (defn projects
   "Grid of projects"
