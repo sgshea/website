@@ -4,9 +4,13 @@
    [reagent-mui.material.box :refer [box]]
    [reagent-mui.material.stack :refer [stack]]
    [reagent-mui.material.paper :refer [paper]]
-   [reagent-mui.material.grid :refer [grid]]
+   [reagent-mui.material.accordion :refer [accordion]]
+   [reagent-mui.material.accordion-details :refer [accordion-details]]
+   [reagent-mui.material.accordion-summary :refer [accordion-summary]]
+   [reagent-mui.icons.expand-more :refer [expand-more]]
    [reagent-mui.material.linear-progress :refer [linear-progress]]
-   ))
+   
+   [reagent.core :as r]))
 
 ;; Text for easy access
 (def about-text
@@ -34,62 +38,108 @@
                  (second about-text)])
     ]])
 
-;; Technologies grid
+;; Technologies information
+;; information here is mapped into the individual items, this is the data
 (def technologies-info
-  {:Languages {:Java 100
-               :Clojure 70
-               :C 50
-               :JavaScript 40}
-   :Libraries {:JUnit 100
-               :Spring 50
-               :JavaFx 90
-               :Clojure-Reagent 80}
-   :Cli-tools {:git 100
-               :bash 90}
-   :Operating-systems {:Fedora-Linux 100
-                       :Windows 80
-                       :Windows-Subsystem-For-Linux 80}
-   :Editors {:Eclipse 90
-             :VSCode 95
-             :Neovim 85
-             :Intellij 40}
-   :Other {:MySql 40}})
+  [{:name "Programming Languages"
+          :list {:Java {:familiarity 100
+                        :info "Java is a popular object-oriented language."
+                        :desc "This is the programming language I have the most experience
+                               in, with almost 3 years of learning within class settings alone."}
+                 :Clojure {:familiarity 70
+                           :info "Clojure is a dynamic, functional dialect of lisp which runs on many
+                                  different platforms such as Java's JVM and browsers through JavaScript."
+                           :desc "I have about a year of experience using Clojure and ClojureScript through
+                                  using it personally to create projects and experience concepts such as
+                                  functional programming."}
+                 :C {:familiarity 60
+                     :info "C is a low-level systems programming language used for operating systems and embedded applications."
+                     :desc "Through university, I have used the C programming language to learn about low-level programming concepts
+                            such as memory management and interfacing with the POSIX operating systems API."}
+                 :JavaScript {:familiarity 30
+                              :info "JavaScript is a dynamic programming language used for website interactivity and other high-level applications."
+                              :desc "I have the occasional experience using JavaScript, usually in order to interface with the browser and pass
+                                     information to back-end APIs using HTTP requests."}}}
+   {:name "Editors"
+             :list {:Eclipse {:familiarity 90
+                              :info "Eclipse is an integrated development environment used primarily for Java development."
+                              :desc "Eclipse is the preferred development environment many of the classes at my university.
+                                     I have about 2 years experience using Eclipse for developing, debugging, and testing Java
+                                     applications."}
+                    :VSCode {:familiarity 100
+                             :info "Visual Studio Code is a code editor heavily focused on using plugins to support many languages."
+                             :desc "Visual Studio Code is my preferred development environment for Clojure and when trying out other
+                                    languages and tools for which a dedicated environment is not immediately"}}}
+   {:name "Libraries and Frameworks"
+    :list {:JUnit {:familiarity 100
+                   :info "JUnit is a unit testing framework for the Java programming language."
+                   :desc "Testing practices and test-driven-development has been a heavy focus throughout courses
+                          at NC State and we have been exposed to JUnit for Java."}
+           :Spring {:familiarity 60
+                    :info "Spring Boot is a framework for Java to create web apps."
+                    :desc "Spring Boot is used as the backend for course projects in the 'Software Engineering' course
+                           and we have used Spring to manage connectivity between the Java backend and JavaScript frontend's
+                           HTTP requests."}
+           :JavaFX {:familiarity 50
+                    :info "JavaFX is a cross-platform graphics library which is used by Java applications."
+                    :desc "JavaFX was used for a short period in a course and I used it for the 'Tic-Tac-Toe' application
+                           through the wrapper library 'CljFX'."}
+           :Reagent {:familiarity 80
+                     :info "Reagent is an interface between ClojureScript and the popular JavaScript framework 'React'."
+                     :desc "Reagent has been used for this website and other projects that I have written in ClojureScript."}
+           :AngularJS {:familiarity 30
+                       :info "AngularJS is a recently discontinued JavaScript framework that is the precursor to Angular."
+                       :desc "AngularJS is used in the 'Software Engineering' course in order to develop webpages and frontend
+                              connection to the backend APIs of the projects."}}}
+   {:name "Other Tools"
+    :list {:Git-GitHub {:familiarity 100
+                        :info "Git is a distributed version control software and GitHub is a hosting
+                               service for Git."
+                        :desc "Git and GitHub has been used for almost every personal and university project."}
+           :MySQL {:familiarity 40
+                   :info "MySQL is a relational database management system."
+                   :desc "MySQL and general SQL syntax has been used and subject of the 'Software Engineering'
+                          course's projects."}}}
+   ])
 
-(defn tech-item-category
-  [item]
-  [grid {:item true
-         :xs 7}
-   [paper {:elevation 5}
-    [typography {:variant :h4
-                 :color "text.primary"
-                 :m 2}
-     item]]])
-
-(defn tech-item
-  [item]
-  [grid {:item true
-         :xs 5}
-   [paper {:elevation 2}
-    [typography {:variant :subtitle2
-                 :m 1}
-     (get item 0)]
+(defn tech-item-accordion
+  [[key item]]
+  [accordion
+   [accordion-summary {:expand-icon (r/as-element [expand-more])
+                       :aria-controls "panelia-content"
+                       :id (str key "-content")}
     [box {:sx {:width "100%"}}
+     [typography {:variant :h7
+                 :m 1}
+     key]
      [linear-progress {:variant "determinate"
-                       :value (get item 1)}]]]])
+                       :value (:familiarity item)}]]
+    ]
+   [accordion-details
+    [typography {:variant :subtitle1
+                 :color :text.primary}
+     (:info item)]
+    [:br]
+    [typography {:variant :body1
+                 :color :text.secondary}
+     (:desc item)]
+    ]]
+  )
 
 (defn tech-category
-  [items]
-  [grid {:container true
-         :spacing 1
-         :align-items "center"
-         :justify-content "center"}
-   (tech-item-category (key items))
-   (map tech-item (val items))])
+  [category]
+  [paper {:elevation 5}
+   [typography {:variant :h4
+                :color "text.primary"
+                :text-align "center"}
+    (:name category)]
+   (map tech-item-accordion (:list category))])
 
 (defn technologies
   []
   [box {:width "90%"
-        :mt 10}
+        :mt 10
+        :mb 10}
    [stack {:spacing 1
            :align-items "center"}
     [paper {:eleveation 5
@@ -106,4 +156,4 @@
       "These are some of my primary technical skills I have aquired so far roughly
        ranked by my familiarity with them. This is not an exhaustive list and may
        not include things I am currently learning!"]
-    (map tech-category technologies-info)]]])
+    (map tech-category technologies-info)]]]) 
