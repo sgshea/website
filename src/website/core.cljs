@@ -35,9 +35,9 @@
       (str "As of " date " I am currently doing a major overhaul/update of the website!")]]
     nil))
 
-;; Theme
+;; Set dark as default
 (defonce theme-mode
-  (r/atom :light)) 
+  (r/atom :dark)) 
 
 (defn toggle-dark-mode
   "Toggles between light and dark mode"
