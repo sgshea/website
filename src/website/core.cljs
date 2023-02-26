@@ -37,11 +37,7 @@
 
 ;; Theme
 (defonce theme-mode
-  (r/atom :light))
-
-(def custom-theme {:palette {:mode @theme-mode
-                             :primary colors/blue 
-                             :secondary colors/red}})
+  (r/atom :light)) 
 
 (defn toggle-dark-mode
   "Toggles between light and dark mode"
@@ -50,6 +46,9 @@
     (reset! theme-mode :dark)
     (reset! theme-mode :light)))
 
+(defn custom-theme [mode] {:palette {:mode mode
+                             :primary colors/blue 
+                             :secondary colors/red}})
 ;; -------------------------
 ;; App Bar
 (defn event-value
@@ -157,11 +156,11 @@
 (defn home-page []
   [:box {}
     [:<>
-    [styles/theme-provider (styles/create-theme custom-theme)
+    [styles/theme-provider (styles/create-theme (custom-theme @theme-mode))
      [css-baseline
      [grid {:container true
             :justify-content "center"}
-      [under-construction true "Feburary 2023"]
+      [under-construction false "Feburary 2023"]
       [about/about]
       [projects/projects]
       [about/technologies]]
