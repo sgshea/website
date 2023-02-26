@@ -49,6 +49,7 @@
 (defn custom-theme [mode] {:palette {:mode mode
                              :primary colors/blue 
                              :secondary colors/red}})
+
 ;; -------------------------
 ;; App Bar
 (defn event-value
