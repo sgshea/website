@@ -9,7 +9,6 @@
    [reagent-mui.material.accordion-summary :refer [accordion-summary]]
    [reagent-mui.icons.expand-more :refer [expand-more]]
    [reagent-mui.material.linear-progress :refer [linear-progress]]
-   
    [reagent.core :as r]))
 
 ;; Text for easy access
@@ -25,7 +24,8 @@
 
 (defn about
   []
-  [box {:style {:width "90%"}}
+  [box {:style {:width "90%"}
+        :id "about"}
    [stack {:spacing 5
            :align-items "center"
            :m 4}
@@ -139,7 +139,8 @@
   []
   [box {:width "90%"
         :mt 10
-        :mb 10}
+        :mb 10
+        :id "skills"}
    [stack {:spacing 1
            :align-items "center"}
     [paper {:eleveation 5
