@@ -1,14 +1,14 @@
 (ns website.core
     (:require
      [reagent.core :as r]
-     [reagent.dom :as d]))
+     [reagent.dom :as d]
+     [website.about :as wabout]))
 
 
 ;; -------------------------
 ;; Initialize website
 (defn home-page []
-  [:p "Hi!"])
-
+  [wabout/main])
 
 ;; -------------------------
 ;; Initialize app
