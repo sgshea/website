@@ -1,16 +1,29 @@
 (ns website.about)
 
 (defn carousel-item [image-url]
-  [:div {:class "carousel-item"}
-   [:img {:src image-url :class "rounded-box w-1/2"}]])
+  [:div {:class "carousel-item rounded-box h-fit w-fit"}
+   [:img {:src image-url}]])
 
-(defn project-template [prose images]
-  [:div {:class "hero bg-base-200"}
-   [:div {:class "hero-content flex-row"}
-    [:div {:class "mr-10"}
-     prose]
-    [:div {:class "carousel rounded-box p-4 space-x-4 carousel-center"}
-     (map carousel-item images)]]])
+(defn project-template [id title text images]
+   [:div {:class "card container mx-auto lg:card-side bg-primary mb-5"}
+   [:figure
+    [:img {:src (first images)}]]
+    [:div {:class "card-body"}
+     [:h2 {:class "card-title"} title]
+     text
+     [:div {:class "card-actions justify-end"}
+      [:button {:class "btn btn-secondary"
+                :on-click #((-> js/document
+                                (.getElementById id)
+                                (.showModal)))} "More Images"]]
+      [:dialog {:id id :class "modal"}
+       [:form {:method "dialog" :class "modal-box max-w-none h-3/5 w-2/3"}
+        [:div {:class "carousel bg-neutral rounded-box"}
+         (map carousel-item images)]
+        [:div {:class "modal-action"}
+         [:button {:class "btn btn-secondary"} "Close"]]
+        ]]
+     ]])
 
 (defn nav-bar []
   [:div {:class "navbar bg-primary text-primary-content"}
@@ -36,15 +49,17 @@
 
 (def neat-project
   [project-template
+   "RNI"
+  "Rust NEAT Implementation"
    [:article {:class "prose"}
-    [:h2 "Rust NEAT Implementation"]
     [:p "Implementation of the Neuroevolution of Augmenting Topologies (NEAT) machine learning algorithm in the Rust programming language."
      ]]])
 
 (def clojure-fullstack
   [project-template
+   "CFS"
+  "Clojure Fullstack Ecommerce Application"
    [:article {:class "prose"}
-    [:h2 "Clojure Fullstack Ecommerce Application"]
     [:p "Fullstack application written in Clojure/ClojureScript."]]
    '("images/ecom_1.png" "images/ecom_2.png" "images/ecom_3.png" "images/ecom_4.png" "images/ecom_5.png" "images/ecom_6.png")])
 
