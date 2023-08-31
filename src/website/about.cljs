@@ -1,9 +1,5 @@
 (ns website.about)
 
-(defn carousel-item [image-url]
-  [:div {:class "carousel-item rounded-box h-fit w-fit"}
-   [:img {:src image-url}]])
-
 (defn project-template [id link title text images? images]
    [:div {:class "card container mx-auto lg:card-side bg-neutral mb-5"}
    [:figure
@@ -27,10 +23,15 @@
                                    (.showModal)))} "More Images"]
          [:dialog {:id id :class "modal"}
           [:form {:method "dialog" :class "modal-box max-w-none h-3/5 w-2/3"}
-           [:div {:class "carousel bg-neutral rounded-box"}
-            (map carousel-item images)]
+          [:div {:class "flex flex-col w-full"}
+           (for [item images]
+             [:div
+              [:div {:class "divider"}]
+              [:img {:src item}]])]
            [:div {:class "modal-action"}
-            [:button {:class "btn btn-secondary"} "Close"]]]]]
+            [:button {:class "btn btn-sm btn-circle btn-secondary absolute right-2 top-2"} "X"]]]
+          [:form {:method "dialog" :class "modal-backdrop"}
+           [:button "Close"]]]]
         nil)
       ]]])
 
