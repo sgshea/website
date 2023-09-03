@@ -1320,26 +1320,6 @@ html {
   --tw-text-opacity: 1;
   color: hsl(var(--nc) / var(--tw-text-opacity));
 }
-.carousel {
-  display: inline-flex;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.carousel-item {
-  box-sizing: content-box;
-  display: flex;
-  flex: none;
-  scroll-snap-align: start;
-}
-.carousel-center .carousel-item {
-  scroll-snap-align: center;
-}
-.carousel-end .carousel-item {
-  scroll-snap-align: end;
-}
 .checkbox {
   flex-shrink: 0;
   --chkbg: var(--bc);
@@ -2267,9 +2247,6 @@ html {
 .card.image-full :where(figure) {
   overflow: hidden;
   border-radius: inherit;
-}
-.carousel::-webkit-scrollbar {
-  display: none;
 }
 .checkbox:focus-visible {
   outline-style: solid;
@@ -3525,10 +3502,6 @@ details.collapse summary::-webkit-details-marker {
 .m-1 {
   margin: 0.25rem;
 }
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -3571,10 +3544,6 @@ details.collapse summary::-webkit-details-marker {
 .h-6 {
   height: 1.5rem;
 }
-.h-fit {
-  height: -moz-fit-content;
-  height: fit-content;
-}
 .w-2\/3 {
   width: 66.666667%;
 }
@@ -3583,10 +3552,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .w-6 {
   width: 1.5rem;
-}
-.w-fit {
-  width: -moz-fit-content;
-  width: fit-content;
 }
 .w-full {
   width: 100%;
@@ -3614,9 +3579,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .items-center {
   align-items: center;
-}
-.justify-end {
-  justify-content: flex-end;
 }
 .truncate {
   overflow: hidden;
@@ -3696,38 +3658,4 @@ details.collapse summary::-webkit-details-marker {
 }
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-}
-@media (min-width: 1024px) {
-
-  .lg\:card-side {
-    align-items: stretch;
-    flex-direction: row;
-  }
-
-  .lg\:card-side :where(figure:first-child) {
-    overflow: hidden;
-    border-start-start-radius: inherit;
-    border-start-end-radius: unset;
-    border-end-start-radius: inherit;
-    border-end-end-radius: unset;
-  }
-
-  .lg\:card-side :where(figure:last-child) {
-    overflow: hidden;
-    border-start-start-radius: unset;
-    border-start-end-radius: inherit;
-    border-end-start-radius: unset;
-    border-end-end-radius: inherit;
-  }
-
-  .lg\:card-side figure > * {
-    max-width: unset;
-  }
-
-  :where(.lg\:card-side figure > *) {
-    width: 100%;
-    height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
 }
