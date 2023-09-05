@@ -1,7 +1,7 @@
 (ns website.about)
 
 (defn project-template [id link title text images? images]
-   [:div {:class "card container image-full bg-neutral mb-5"}
+   [:div {:class "card container glass mb-5"}
     [:figure
      [:img {:class "" :src (first images)}]]
     [:div {:class "card-body"}
@@ -53,10 +53,18 @@
   [:article {:class "prose mb-10"}
    [:h1
     "About"]
+   [:h2
+    "Nice to meet you!"]
    [:p
-    "Hi, my name is Sammy! I currently am studying Computer Science at the University of North Carolina.
-     I am interested in open-source spaces such as Linux, as well as topics such as artifical intelligence and exploring different programming languages or paradigms!"]
-   ])
+    "My name is Sammy, a third-year undergrad at North Carolina State University pursuing a B.S. in Computer Science. My current interests include evolutionary machine learning and game development!"]
+   [:h2
+    "Experience in..."]
+   [:ul
+    [:li "Languages: Java, JavaScript, Python, Rust, C, Clojure, SQL, HTML/CSS"]
+    [:li "Frameworks: Spring Boot, TailwindCSS, Reagent/React, JUnit"]
+    [:li "Libraries: Hibernate, JavaFX"]
+    [:li "Developer Tools: Git/GitHub, Docker, GitHub Actions, Jenkins, Visual Studio Code, IntelliJ IDEA, Vim"]
+    [:li "Operating Systems: Linux, Windows"]]])
 
 (def neat-project
   [project-template
@@ -65,34 +73,23 @@
    "Rust NEAT Implementation"
    [:article {:class "prose"}
     [:p "Implementation of the Neuroevolution of Augmenting Topologies (NEAT) machine learning algorithm in the Rust programming language."]
-    [:h4 "Problem Statement"]
-    [:p "This project was primarily taken on in an interest to learn the Rust language. At the same time as I was going throught the Rust Book,
-         I came across the idea of neuroevolution in machine learning. The NEAT algorithm is originally described in a paper from 2002 and focuses
-         on evolving neural network structures. There are several different libraries available which implement this and related libraries, but no
-         very mature ones for Rust and I had the idea to implement a simple library as a learning experiment."]
-    [:p "The library in it's current state implements the paper's ideas as well as some tweaks that are mentioned in newer literature enough to solve
-         the basic XOR function. From this project I gained a good understanding of how Rust programs can be structured and of different language elements
-         through the couple of rewrites of the project."]] 
+    [:li "Tech Stack: Rust"]
+    [:p "This project explored the fascinating concept of NEAT to evolve neural networks, by implementing the original paper in Rust to learn the XOR function!"]]
    false])
 
 (def clojure-fullstack
   [project-template
    "CFS"
    "https://github.com/sgshea/ecommerce"
-   "Clojure Fullstack Ecommerce Application"
+   "Clojure Full-stack App"
    [:article {:class "prose"}
-    [:p "Fullstack application written in Clojure/ClojureScript."]
-    [:h4 "Main Technologies (Specifics on GitHub)"]
-    [:ul
-     [:li "Clojure/ClojureScript"]
-     [:li "Reagent frontend framework (React Wrapper for ClojureScript)"]
-     [:li "MUI component library"]
-     [:li "Ring HTTP Server (Based on Eclipse Jetty)"]
-     [:li "Reitit routing library, middleware, Swagger API documentation plugin"]
-     [:li "SQLite database, using Honey SQL to define SQL queries in Clojure"]
-     [:li "Buddy authentication, using Json Web Tokens (JWT)"]
-     [:li "Packaged as Dockerfile"]
-     ]]
+    [:p "A full-stack application written using Clojure for the front-end and back-end."]
+    [:li "Tech Stack: Clojure, ClojureScript, Reagent, SQLite, etc. (More specific on GitHub)"]
+    [:p "Using Clojure and ClojureScript, this project explored a functional programming stack for a seamlessly integrated front-end and back-end.
+         The Reagent interface for React and ClojureScript allowed for an interactive front-end. Using libraries such as Ring, Integrant, Reitit,
+         and Buddy created a performant and secure back-end with persistence using SQLite!"]
+    [:p "Dockerfile available!"]
+    ]
    true
    '("images/ecom_1.png" "images/ecom_2.png" "images/ecom_3.png" "images/ecom_4.png" "images/ecom_5.png" "images/ecom_6.png")])
 
@@ -102,7 +99,11 @@
    "https://github.com/sgshea/website"
    "Portfolio Website"
    [:article {:class "prose"}
-    [:p "Static Website Written in ClojureScript."]]
+    [:p "A simple website to display my projects, created using ClojureScript and Tailwind CSS!"]
+    [:ul
+     [:li "Pure ClojureScript as a JavaScript substitute"]
+     [:li "Reagent as an interface to React for increased interactivity"]
+     [:li "Tailwind CSS along with daisyUI for eye-candy"]]]
    false])
 
 (defn main []
