@@ -1,7 +1,8 @@
 (ns website.about)
 
 (defn project-template [id link title text images? images]
-   [:div {:class "card container glass mb-5"}
+   [:div {:class "card container glass mb-5"
+          :id (str "/" id)}
     [:figure
      [:img {:class "" :src (first images)}]]
     [:div {:class "card-body"}
@@ -44,9 +45,9 @@
      [:label {:tabIndex "0" :class "btn btn-ghost m-1"} "Projects"]
      [:li {:tabIndex "0" :class "dropdown-content bg-primary menu shadow mt-3 z-[1] p-2 rounded-box w-52"}
       [:ul
-       [:li [:a "Rust NEAT"]]
-       [:li [:a "Clojure FullStack"]]
-       [:li [:a "Portfolio Website"]]
+       [:li [:a {:href "#/RNI"} "Rust NEAT"]]
+       [:li [:a {:href "#/CFS"}"Clojure FullStack"]]
+       [:li [:a {:href "#/PW"}"Portfolio Website"]]
        ]]]]])
 
 (defn main-paragraph []
