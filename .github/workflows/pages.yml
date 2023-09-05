@@ -27,7 +27,7 @@ jobs:
       - name: Build
         run: |
           npm install
-          npx shadow-cljs release app
+          npm run release
       
       - name: Setup Pages
         uses: actions/configure-pages@v2
