@@ -9,7 +9,7 @@
      [:h2 {:class "card-title"} title]
      text
      [:div {:class "card-actions"}
-      [:button {:class "btn btn-secondary"
+      [:button {:class "btn btn-primary"
                 :href link}
        [:a {:href link} "GitHub"]
        ;; GitHub button
@@ -18,7 +18,7 @@
                 :clip-rule "evenodd"}]]]
       (if images?
         [:div
-         [:button {:class "btn btn-secondary"
+         [:button {:class "btn btn-primary"
                    :on-click #((-> js/document
                                    (.getElementById id)
                                    (.showModal)))} "Images"]
@@ -30,13 +30,14 @@
                [:div {:class "divider"}]
                [:img {:src item}]])]
            [:div {:class "modal-action"}
-            [:button {:class "btn btn-sm btn-circle btn-secondary absolute right-2 top-2"} "X"]]]
+            [:button {:class "btn btn-sm btn-circle btn-accent absolute right-2 top-2"} "X"]]]
           [:form {:method "dialog" :class "modal-backdrop"}
            [:button "Close"]]]]
         nil)]]])
 
 (defn nav-bar []
-  [:div {:class "navbar bg-primary text-primary-content"}
+  [:div {:class "navbar bg-primary text-primary-content" :style {:position "relative" ;; z-index to be over particles-canvas
+                                                                 :z-index 1}}
    [:div {:class "flex-1"}
     [:a {:class "btn btn-ghost normal-case text-xl"}
      "Sammy Shea"]]
@@ -102,17 +103,17 @@
    [:article {:class "prose"}
     [:p "A simple website to display my projects, created using ClojureScript and Tailwind CSS!"]
     [:ul
-     [:li "Pure ClojureScript as a JavaScript substitute"]
-     [:li "Reagent as an interface to React for increased interactivity"]
-     [:li "Tailwind CSS along with daisyUI for eye-candy"]]]
+     [:li "Pure ClojureScript as a JavaScript substitute."]
+     [:li "Reagent as an interface to React for increased interactivity."]
+     [:li "Tailwind CSS along with daisyUI for eye-candy."]
+     [:li "Background animation using tsParticles library."]]]
    false])
 
 (defn main []
-[:div
- [nav-bar]
- [:div {:class "flex flex-col items-center mt-5"}
-  [main-paragraph]
-  neat-project
-  clojure-fullstack
-  portfolio-website
-  ]])
+  [:div
+   [nav-bar]
+   [:div {:class "flex flex-col items-center mt-5"}
+    [main-paragraph]
+    neat-project
+    clojure-fullstack
+    portfolio-website]])
