@@ -112,7 +112,8 @@
 (defn main []
   [:div
    [nav-bar]
-   [:div {:class "flex flex-col items-center mt-5"}
+   [:div {:class "flex flex-col items-center mt-5" :style {:position "relative"
+                                                           :z-index 1}}
     [main-paragraph]
     neat-project
     clojure-fullstack

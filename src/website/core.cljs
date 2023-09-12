@@ -10,22 +10,23 @@
   (loadSlim engine))
 
 (defn ts-particles []
-  (let [options {:fullscreen {:enable true
+  (let [options {:retina_detect true
+                 :fullscreen {:enable true
                               :zIndex 0}
-                 :interactivity {
-                                 :events {:onClick {:enable true
+                 :interactivity {:events {:onClick {:enable true
                                                     :mode "push"}
                                           :onHover {:enable true
-                                                    :mode "repulse"}}}
+                                                    :mode "repulse"}
+                                          :resize true}}
                  :particles
-                 {:number {:value 100}
+                 {:number {:value 60}
                   :links {:enable true
                           :distance 85
                           :triangles {:enable true
-                                      :opacity 0.1}}
+                                      :opacity 0.01}}
                   :move {:enable true
                          :speed 1}
-                  :size {:value 1}
+                  :size {:value 1.2}
                   :shape {:type "circle"}}}]
     [(r/adapt-react-class Particles) {:options options :init init-particles}]))
 
