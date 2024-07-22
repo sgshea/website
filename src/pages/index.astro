@@ -1,0 +1,29 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import RecentProjects from "../components/RecentProjects.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="w-full max-w-screen-md mx-auto my-4 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300" >
+    <Header />
+    <main class="flex flex-col justify-center">
+      <div class="px-4 md:px-16 flex flex-col gap-4 md:my-10">
+        <h1 class="text-2xl md:text-5xl w-full">Hello!</h1>
+        <p class="w-full text-justify text-base md:text-lg">
+          Hello! I am a university student and a software enthusiast who likes to explore various areas in technology while making projects based on what I've learned.
+          On this website, you can see some of my projects. The rest of my work can be found on my <a href="https://github.com/sgshea" class="text-blue-500">GitHub</a>.
+        </p>
+      </div>
+	  <RecentProjects />
+	      </main>
+    <Footer />
+  </body>
+</html>
+
