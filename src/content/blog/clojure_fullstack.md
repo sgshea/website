@@ -1,8 +1,8 @@
 ---
-title: 'Clojure Fullstack Demo'
+title: 'Clojure Fullstack Application'
 description: 'Clojure Fullstack Application.'
 pubDate: 'Jun 10 2023'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/clj_fullstack.svg'
 tags: ['clojure']
 source: https://github.com/sgshea/ecommerce
 ---

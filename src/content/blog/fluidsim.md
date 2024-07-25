@@ -2,7 +2,7 @@
 title: 'Eulerian Fluid Simulator'
 description: 'Grid-based Eulerian fluid simulation in Rust.'
 pubDate: 'July 22 2024'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/fluid_rs.png'
 tags: ['rust', 'bevy', 'physics']
 demo: https://sgshea.github.io/fluid-rs/
 source: https://github.com/sgshea/fluid-rs

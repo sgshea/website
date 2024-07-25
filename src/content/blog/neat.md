@@ -2,7 +2,6 @@
 title: 'Evolving Neural Net'
 description: 'Neuroevolution of Augmenting Topologies implementation.'
 pubDate: 'Aug 18 2023'
-heroImage: '/blog-placeholder-3.jpg'
 tags: ['rust', 'ai']
 source: https://github.com/sgshea/neat
 ---
