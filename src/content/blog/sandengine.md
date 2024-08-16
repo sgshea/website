@@ -2,7 +2,8 @@
 title: 'sandengine'
 description: 'Falling Sand physics engine integrated with traditional rigid body physics.'
 pubDate: 'Feb 11 2024'
-heroImage: '/blog-placeholder-3.jpg'
+stillActive: true
+heroImage: '/sandengine.png'
 tags: ['rust', 'performance', 'bevy', 'physics']
 demo: https://sgshea.github.io/sandengine/
 source: https://github.com/sgshea/sandengine

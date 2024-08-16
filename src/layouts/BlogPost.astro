@@ -8,7 +8,7 @@ import TagLink from "../components/TagLink.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, heroImage, tags, source, demo } = Astro.props;
+const { title, description, pubDate, stillActive, heroImage, tags, source, demo } = Astro.props;
 
 ---
 
@@ -20,8 +20,15 @@ const { title, description, pubDate, heroImage, tags, source, demo } = Astro.pro
     <Header />
     <main>
       <article class="px-4">
-        <div class="flex justify-between mb-6">
+        <div class="flex mb-6">
           <FormattedDate date={pubDate} />
+          {
+            stillActive && (
+              <p class="ml-2 text-gray-500 dark:text-gray-400 text-xs font-medium tracking-wide">
+                - Present
+              </p>
+            )
+          }
         </div>
         <h1 class="text-5xl mb-8">
           {title}
