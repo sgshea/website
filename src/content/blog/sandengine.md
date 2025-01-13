@@ -15,6 +15,11 @@ source: https://github.com/sgshea/sandengine
 >
 > There are native builds created by the CI for each release on the releases page that have better performance than the web demo.
 
+> Current State:
+> Project was on pause for late 2024, but I plan to come back in 2025 to address the following issues:
+> - Basic 2-way interaction between the rigid bodies and the cells is available but contains several bugs that need to be addressed.
+>   - Possible partial rewrite to take advantage of several bevy engine (and rust physics engine developments) that have been released since this project was started.
+
 # Overview
 Sandengine is a falling sand simulation/game created in the Rust and using the Bevy game engine. The project aims to integrate traditional rigid body physics with the cellular automaton model of falling sand. This will allow for complex interactions between particles, such as bouncing off each other or being pushed around by external forces like gravity.
 
