@@ -136,6 +136,13 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
+"417_language.md": {
+	id: "417_language.md";
+  slug: "417_language";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "clojure_fullstack.md": {
 	id: "clojure_fullstack.md";
   slug: "clojure_fullstack";
@@ -153,6 +160,13 @@ declare module 'astro:content' {
 "neat.md": {
 	id: "neat.md";
   slug: "neat";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"poll_svelte.md": {
+	id: "poll_svelte.md";
+  slug: "poll_svelte";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">

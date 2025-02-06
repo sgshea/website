@@ -6,12 +6,10 @@ tags: ['rust', 'ai']
 source: https://github.com/sgshea/neat
 ---
 
-Implementation of [Neuroevolution of Augmenting Topologies (NEAT)](https://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf) in Rust.
+A Rust implementation of the [Neuroevolution of Augmenting Topologies (NEAT)](https://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf) algorithm.
 
 ## NEAT Overview
-NEAT is a genetic algorithm for the generation of evolving artificial neural networks by altering both the weights and structures through mutation and crossover.
-The core functionality of the NEAT algorithm is implemented within this library, including genome repesentation with connection and node genes, mutation
-to alter weights and add connections or nodes, speciation based on a compatibility distance metric, fitness sharing to encourage speciation and genetic operations such as crossover to create improved genomes for the next generation of networks.
+NEAT is a genetic algorithm which evolves the entire artificial neural network, including the network's weights and structure.
 
 ## Key Features
 - **Genome Representation**: NEAT uses a genome representation with connection and node genes that can be mutated to alter weights or add new connections/nodes.
