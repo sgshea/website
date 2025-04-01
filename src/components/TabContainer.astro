@@ -1,0 +1,83 @@
+---
+import Tab from './Tab.astro';
+import AboutTab from './AboutTab.astro';
+import ProjectsTab from './ProjectsTab.astro';
+---
+
+<div class="tab-container terminal-box">
+  <div class="terminal-header">
+    <div class="terminal-title">portfolio.sh</div>
+    <div class="terminal-controls">
+      <div class="terminal-button">_</div>
+      <div class="terminal-button">□</div>
+      <div class="terminal-button">✕</div>
+    </div>
+  </div>
+
+  <div class="tab-headers">
+    <Tab id="about" label="About" active={true} />
+    <Tab id="projects" label="Projects" />
+  </div>
+
+  <div class="tab-content">
+    <div id="about-content" class="tab-panel active">
+      <AboutTab />
+    </div>
+    <div id="projects-content" class="tab-panel">
+      <ProjectsTab />
+    </div>
+  </div>
+</div>
+
+<script>
+  // Tab switching functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active class from all tabs and panels
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+
+        // Add active class to clicked tab and corresponding panel
+        tab.classList.add('active');
+        const tabId = tab.getAttribute('data-tab');
+        const element = document.getElementById(`${tabId}-content`);
+        if (element) {
+          element.classList.add('active');
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .tab-container {
+    width: 100%;
+    min-height: calc(100vh - 250px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tab-headers {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tab-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem 0;
+  }
+
+  .tab-panel {
+    display: none;
+    animation: fadeIn var(--transition-medium) ease;
+  }
+
+  .tab-panel.active {
+    display: block;
+  }
+</style>

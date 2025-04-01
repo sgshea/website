@@ -1,0 +1,105 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  tags: string[];
+  demo?: string;
+  link: string;
+}
+
+const { title, description, tags, demo, link } = Astro.props;
+---
+
+<div class="project-card">
+  <h3 class="project-title">{title}</h3>
+
+  <p class="project-description">{description}</p>
+
+  <div class="project-tags">
+    {tags.map(tag => (
+      <span class="project-tag">{tag}</span>
+    ))}
+  </div>
+
+  {demo && (
+    <a href={demo} class="project-link" target="_blank" rel="noopener noreferrer">
+      Demo <span class="arrow">→</span>
+    </a>
+  )}
+
+  <a href={link} class="project-link" target="_blank" rel="noopener noreferrer">
+    View Project <span class="arrow">→</span>
+  </a>
+</div>
+
+<style>
+  .project-card {
+    background-color: rgba(26, 26, 26, 0.5);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.25rem;
+    transition: all var(--transition-medium) ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px var(--card-hover-shadow);
+    border-color: var(--text-primary);
+  }
+
+  .project-title {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-tag {
+    background-color: var(--tag-bg);
+    color: var(--accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+  }
+
+  .project-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    transition: all var(--transition-fast) ease;
+    margin-top: auto;
+  }
+
+  .project-link:hover {
+    color: var(--accent);
+  }
+
+  .project-link .arrow {
+    transition: transform var(--transition-fast) ease;
+  }
+
+  .project-link:hover .arrow {
+    transform: translateX(3px);
+  }
+</style>

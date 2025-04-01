@@ -1,0 +1,163 @@
+:root {
+  /* Core Gruvbox Colors */
+  --bg-primary: #282828; /* Gruvbox dark background */
+  --bg-secondary: #32302f; /* Gruvbox dark secondary background */
+  --text-primary: #ebdbb2; /* Gruvbox light text (fg) */
+  --text-secondary: #a89984; /* Gruvbox light gray/secondary text */
+  --border: #504945; /* Gruvbox dark gray */
+
+  /* primary color options */
+  /* Gruvbox yellow as default accent */
+  --accent: #fabd2f;
+  /* Gruvbox red */
+  /* --accent: #fb4934; */
+  /* Gruvbox purple */
+  /* --accent: #b16286; */
+  /* Gruvbox green */
+  /* --accent: #b8bb26; */
+  /* Gruvbox blue */
+  /* --accent: #83a598; */
+  /* Gruvbox orange */
+  /* --accent: #fe8019; */
+  /* Gruvbox aqua */
+  /* --accent: #8ec07c; */
+
+  /* UI elements */
+  --terminal-red: #cc241d; /* Gruvbox dark red */
+  --terminal-yellow: #fabd2f; /* Gruvbox yellow */
+  --terminal-green: #98971a; /* Gruvbox green */
+
+  /* Component specific */
+  --skill-bg: rgba(250, 189, 47, 0.1); /* Based on default yellow accent */
+  --tag-bg: rgba(250, 189, 47, 0.1); /* Based on default yellow accent */
+  --card-hover-shadow: rgba(250, 189, 47, 0.2);
+
+  /* Animation durations */
+  --transition-fast: 0.2s;
+  --transition-medium: 0.3s;
+}
+
+/* Base elements styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "JetBrains Mono", monospace;
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 2rem;
+  gap: 1.5rem;
+}
+
+/* Terminal box styling */
+.terminal-box {
+  border: 1px solid var(--border);
+  background-color: var(--bg-secondary);
+  border-radius: 4px;
+  padding: 1rem;
+  position: relative;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.terminal-title {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding-left: 0.5rem;
+}
+
+.terminal-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.terminal-button {
+  color: var(--terminal-green);
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Animations */
+.blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* For red accent */
+/* .skill-bg {
+  background-color: rgba(251, 73, 52, 0.1);
+}
+.tag-bg {
+  background-color: rgba(251, 73, 52, 0.1);
+}
+.card-hover-shadow {
+  box-shadow: rgba(251, 73, 52, 0.2);
+} */
+
+/* For purple accent */
+/* .skill-bg {
+  background-color: rgba(177, 98, 134, 0.1);
+}
+.tag-bg {
+  background-color: rgba(177, 98, 134, 0.1);
+}
+.card-hover-shadow {
+  box-shadow: rgba(177, 98, 134, 0.2);
+} */
+
+/* For green accent */
+/* .skill-bg {
+  background-color: rgba(184, 187, 38, 0.1);
+}
+.tag-bg {
+  background-color: rgba(184, 187, 38, 0.1);
+}
+.card-hover-shadow {
+  box-shadow: rgba(184, 187, 38, 0.2);
+} */

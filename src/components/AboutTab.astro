@@ -1,0 +1,123 @@
+<div class="about-content">
+  <h2> About Me</h2>
+
+  <div class="section">
+    <h3>$ cat languages.txt</h3>
+    <div class="skills">
+      <span class="skill">Java</span>
+      <span class="skill">Rust</span>
+      <span class="skill">JavaScript</span>
+      <span class="skill">TypeScript</span>
+      <span class="skill">C</span>
+      <span class="skill">C++</span>
+      <span class="skill">Python</span>
+      <span class="skill">Bash</span>
+      <span class="skill">Clojure</span>
+      <span class="skill">SQL</span>
+      <span class="skill">HTML</span>
+      <span class="skill">CSS</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>$ cat libraries.txt</h3>
+    <div class="skills">
+      <span class="skill">React</span>
+      <span class="skill">Svelte</span>
+      <span class="skill">Express.js</span>
+      <span class="skill">Node.js</span>
+      <span class="skill">Spring Boot</span>
+      <span class="skill">Tailwind CSS</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>$ cat tech.txt</h3>
+    <div class="skills">
+      <span class="skill">Linux</span>
+      <span class="skill">Git</span>
+      <span class="skill">Docker</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>$ cat education.txt</h3>
+    <div class="education">
+      <div class="edu-item">
+        <span class="edu-degree">B.S. Computer Science</span>
+        <span class="edu-school">North Carolina State University</span>
+        <span class="edu-date">2021 - 2025</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  h2 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 0.5rem;
+  }
+
+  .section {
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    color: var(--accent);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill {
+    background-color: var(--skill-bg);
+    color: var(--text-primary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+  }
+
+  .exp-item, .edu-item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dotted var(--border);
+  }
+
+  .exp-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .exp-title, .edu-degree {
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+
+  .exp-company, .edu-school {
+    color: var(--accent);
+  }
+
+  .exp-date, .edu-date {
+    color: var(--text-secondary);
+    opacity: 0.7;
+    font-size: 0.8rem;
+  }
+</style>

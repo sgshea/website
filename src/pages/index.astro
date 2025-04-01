@@ -1,29 +1,23 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import RecentProjects from "../components/RecentProjects.astro";
+import Layout from '../layouts/Layout.astro';
+import Sidebar from '../components/Sidebar.astro';
+import TabContainer from '../components/TabContainer.astro';
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body class="w-full max-w-screen-md mx-auto my-4 dark:bg-neutral-800 dark:text-neutral-300 transition-colors duration-300" >
-    <Header />
-    <main class="flex flex-col justify-center">
-      <div class="px-4 md:px-16 flex flex-col gap-4 md:my-10">
-        <h1 class="text-2xl md:text-5xl w-full">Hello!</h1>
-        <p class="w-full text-justify text-base md:text-lg">
-          Welcome to my website!
-          Here you can see some of my projects, the rest can be found on my <a href="https://github.com/sgshea" class="text-blue-500">GitHub</a>.
-        </p>
-      </div>
-	  <RecentProjects />
-	      </main>
-    <Footer />
-  </body>
-</html>
+<Layout title="Terminal Portfolio">
+  <div class="portfolio-container">
+    <Sidebar />
+    <TabContainer />
+  </div>
+</Layout>
 
+<style>
+  .portfolio-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+</style>
