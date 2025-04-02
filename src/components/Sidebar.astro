@@ -2,149 +2,158 @@
 const name = "Sammy Shea";
 const title = "Software Developer";
 const social = [
-  { name: "GitHub", url: "https://github.com/sgshea" },
-  { name: "Email", url: "mailto:sammy@sammyshea.com" },
+    { name: "GitHub", url: "https://github.com/sgshea" },
+    { name: "Email", url: "mailto:sammy@sammyshea.com" },
 ];
 ---
 
 <aside class="sidebar terminal-box">
-  <div class="terminal-header">
-    <div class="terminal-title">profile.sh</div>
-    <div class="terminal-controls">
-        <div class="terminal-button minimize">_</div>
-        <div class="terminal-button maximize">□</div>
-        <div class="terminal-button close">✕</div>
+    <div class="terminal-header">
+        <div class="terminal-title">profile.sh</div>
+        <div class="terminal-controls">
+            <div class="terminal-button minimize">_</div>
+            <div class="terminal-button maximize">□</div>
+            <div class="terminal-button close">✕</div>
+        </div>
     </div>
-  </div>
 
-  <div class="content">
-    <!-- <div class="avatar">
+    <div class="content">
+        <!-- <div class="avatar">
       <div class="avatar-placeholder">
         <span>[avatar]</span>
       </div>
     </div> -->
 
-    <h1 class="name">{name}</h1>
-    <h2 class="title">{title}</h2>
+        <h1 class="name">{name}</h1>
 
-    <div class="intro">
-      <p> System initialized. Running on caffeine, curiosity, and a commitment to pixel-perfect code. </p>
-      <p class="cursor">_</p>
-    </div>
+        <div class="intro">
+            <p>
+                Hello and welcome to my website! Take a look at my projects and
+                skills below.
+            </p>
+            <p>Take a look at my GitHub for more!</p>
+            <p class="cursor">_</p>
+        </div>
 
-    <div class="social">
-      <ul>
-        {social.map(item => (
-          <li>
-            <a href={item.url} target="_blank" rel="noopener noreferrer">
-              {item.name}
-            </a>
-          </li>
-        ))}
-      </ul>
+        <div class="social">
+            <ul>
+                {
+                    social.map((item) => (
+                        <li>
+                            <a
+                                href={item.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {item.name}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
     </div>
-  </div>
 </aside>
 
 <style>
-  .sidebar {
-    width: 100%;
-    min-height: 180px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    height: 100%;
-  }
-
-  .profile-section {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .avatar {
-    flex-shrink: 0;
-  }
-
-  .avatar-placeholder {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background-color: var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-primary);
-  }
-
-  .info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .name {
-    font-size: 1.8rem;
-    color: var(--text-primary);
-  }
-
-  .title {
-    font-size: 1rem;
-    color: var(--accent);
-    font-weight: 400;
-  }
-
-  .intro {
-    line-height: 1.6;
-  }
-
-  .intro p {
-    margin-bottom: 0.5rem;
-  }
-
-  .cursor {
-    color: var(--text-primary);
-    font-weight: bold;
-    animation: blink 1s infinite;
-    display: inline-block;
-  }
-
-  .social {
-    margin-top: auto;
-  }
-
-  .social ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .social a {
-    color: var(--accent);
-    text-decoration: none;
-    padding: 0.25rem 0.5rem;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    transition: all var(--transition-fast) ease;
-  }
-
-  .social a:hover {
-    background-color: var(--border);
-    color: var(--text-primary);
-  }
-
-  @media (max-width: 600px) {
-    .profile-section {
-      flex-direction: column;
-      gap: 1rem;
-      align-items: center;
-      text-align: center;
+    .sidebar {
+        width: 100%;
+        min-height: 180px;
+        display: flex;
+        flex-direction: column;
     }
-  }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        height: 100%;
+    }
+
+    .profile-section {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .avatar {
+        flex-shrink: 0;
+    }
+
+    .avatar-placeholder {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background-color: var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-primary);
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .name {
+        font-size: 1.8rem;
+        color: var(--text-primary);
+    }
+
+    .title {
+        font-size: 1rem;
+        color: var(--accent);
+        font-weight: 400;
+    }
+
+    .intro {
+        line-height: 1.6;
+    }
+
+    .intro p {
+        margin-bottom: 0.5rem;
+    }
+
+    .cursor {
+        color: var(--text-primary);
+        font-weight: bold;
+        animation: blink 1s infinite;
+        display: inline-block;
+    }
+
+    .social {
+        margin-top: auto;
+    }
+
+    .social ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .social a {
+        color: var(--accent);
+        text-decoration: none;
+        padding: 0.25rem 0.5rem;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        transition: all var(--transition-fast) ease;
+    }
+
+    .social a:hover {
+        background-color: var(--border);
+        color: var(--text-primary);
+    }
+
+    @media (max-width: 600px) {
+        .profile-section {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            text-align: center;
+        }
+    }
 </style>
