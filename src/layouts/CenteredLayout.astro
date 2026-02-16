@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
-import { Github } from '@lucide/astro';
+import { GitCompare } from '@lucide/astro';
 
 const { page } = Astro.props;
 ---
@@ -18,7 +18,7 @@ const { page } = Astro.props;
         <row id="statusline">
           <span is-="badge" variant-="blue">NORMAL</span>
           <span is-="badge" variant-="background1">
-            <Github size={16} />
+              <GitCompare size={16} />
             <span class="branch-name">main</span>
           </span>
           <row self-="grow">

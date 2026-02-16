@@ -1,22 +1,25 @@
 ---
-import { Home, User, Code, GitCompare } from '@lucide/astro';
+import { Home, User, Code } from '@lucide/astro';
 
 const url = Astro.url.pathname;
 
+// Normalize the pathname to handle trailing slashes
+const normalizedPath = url.replace(/\/$/, '') || '/';
+
 let currentTab: 'about' | 'projects' | 'home' = 'home';
 
-if (url === '/about') {
+if (normalizedPath === '/about') {
   currentTab = 'about';
-} else if (url === '/projects') {
+} else if (normalizedPath === '/projects') {
   currentTab = 'projects';
-} else if (url === '/') {
+} else if (normalizedPath === '/') {
   currentTab = 'home';
 }
 
 const tabs = [
   { name: 'home', href: '/', icon: Home },
-  { name: 'about', href: '/about', icon: User },
-  { name: 'projects', href: '/projects', icon: Code },
+  { name: 'about', href: '/about/', icon: User },
+  { name: 'projects', href: '/projects/', icon: Code },
 ];
 ---
 
@@ -29,7 +32,6 @@ const tabs = [
           href={tab.href}
           class="tab"
           data-active={currentTab === tab.name}
-          target={tab.external ? "_blank" : undefined}
         >
           <IconComponent class="tab-icon" size={20} />
           <span class="tab-name">{tab.name}</span>
