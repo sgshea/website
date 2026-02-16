@@ -1,0 +1,95 @@
+---
+import CenteredLayout from '../layouts/CenteredLayout.astro';
+import Link from '../components/Link.astro';
+import { Github } from '@lucide/astro';
+---
+
+<CenteredLayout page="projects">
+  <header is-="column" gap-="1" space-="px:1">
+    <h1 autofocus>projects</h1>
+    <p>here are some of my favorite projects i have worked on:</p>
+
+    <column gap-="2" id="projects-list">
+      <Link href="https://github.com/sgshea/sandengine" target="_blank" class="project-item">
+        <div class="project-header">
+          <code>sandengine</code>
+        </div>
+        <p class="project-desc">high-performance falling sand simulation with multithreading and rigid body physics using rust and bevy</p>
+      </Link>
+
+      <Link href="https://github.com/sgshea/417lang" target="_blank" class="project-item">
+        <div class="project-header">
+          <code>417 language</code>
+        </div>
+        <p class="project-desc">a simple expression-based programming language and parser implementation in rust (class project)</p>
+      </Link>
+
+      <Link href="https://github.com/sgshea/neat" target="_blank" class="project-item">
+        <div class="project-header">
+          <code>neat ai library</code>
+        </div>
+        <p class="project-desc">a rust library implementing the neat algorithm for artificial intelligence</p>
+      </Link>
+    </column>
+
+    <p style="margin-top: 1lh;">see my git site for more projects!</p>
+    <Link href="https://github.com/sgshea" target="_blank">
+      <Github size={18} />
+      <span>github</span>
+    </Link>
+
+  </header>
+</CenteredLayout>
+
+<style>
+  h1 {
+    color: #a6e3a1;
+  }
+
+  p {
+    color: var(--foreground1);
+    line-height: 1.6;
+  }
+
+  #projects-list {
+    margin-top: 1lh;
+  }
+
+  :global(.project-item) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5lh;
+    padding: 1lh 1.5ch;
+    border: 1px solid var(--surface1);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--foreground1);
+    font-weight: normal;
+    transition: background-color 0.15s, border-color 0.15s;
+  }
+
+  :global(.project-item:hover) {
+    background-color: var(--background1);
+    border-color: var(--blue);
+  }
+
+  .project-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5ch;
+  }
+
+  .project-header code {
+    color: #a6e3a1;
+    font-weight: 600;
+    background: none;
+    padding: 0;
+  }
+
+  .project-desc {
+    margin: 0;
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: var(--foreground2);
+  }
+</style>

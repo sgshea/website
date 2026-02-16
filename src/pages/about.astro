@@ -1,0 +1,116 @@
+---
+import CenteredLayout from '../layouts/CenteredLayout.astro';
+import Link from '../components/Link.astro';
+---
+
+<CenteredLayout page="about">
+  <header is-="column" gap-="1" space-="px:1">
+    <h1 autofocus>about me</h1>
+    <p>software developer in the united states</p>
+
+    <div id="skills" box-="square" shear-="top">
+      <row>
+        <span is-="badge" variant-="background0">
+          skills
+        </span>
+      </row>
+      <column space-="px:1" is-="typography-block">
+        <div>
+          <strong>languages</strong>
+          <div class="skill-list">
+            <span is-="badge" variant-="blue">Rust</span>
+            <span is-="badge" variant-="blue">Clojure</span>
+            <span is-="badge" variant-="blue">JavaScript</span>
+            <span is-="badge" variant-="blue">TypeScript</span>
+            <span is-="badge" variant-="blue">Java</span>
+            <span is-="badge" variant-="blue">Python</span>
+            <span is-="badge" variant-="blue">C</span>
+            <span is-="badge" variant-="blue">C++</span>
+            <span is-="badge" variant-="blue">C#</span>
+            <span is-="badge" variant-="blue">Bash</span>
+          </div>
+        </div>
+
+        <div>
+          <strong>frameworks & libraries</strong>
+          <div class="skill-list">
+            <span is-="badge" variant-="green">Svelte</span>
+            <span is-="badge" variant-="green">Tailwind CSS</span>
+            <span is-="badge" variant-="green">Bevy</span>
+            <span is-="badge" variant-="green">Astro</span>
+            <span is-="badge" variant-="green">React</span>
+            <span is-="badge" variant-="green">Node.js</span>
+            <span is-="badge" variant-="green">Spring Boot</span>
+          </div>
+        </div>
+
+        <div>
+          <strong>tools & tech</strong>
+          <div class="skill-list">
+            <span is-="badge" variant-="mauve">Linux</span>
+            <span is-="badge" variant-="mauve">Git</span>
+            <span is-="badge" variant-="mauve">neovim</span>
+            <span is-="badge" variant-="mauve">Docker</span>
+            <span is-="badge" variant-="mauve">Nix</span>
+          </div>
+        </div>
+      </column>
+    </div>
+
+    <div id="education" box-="square" shear-="top">
+      <row>
+        <span is-="badge" variant-="background0">
+          education
+        </span>
+      </row>
+      <column space-="px:1" is-="typography-block">
+        <div class="edu-item">
+          <strong>B.S. Computer Science</strong>
+          <p>north carolina state university</p>
+          <p style="opacity: 0.7;">2021 - 2025</p>
+        </div>
+      </column>
+    </div>
+  </header>
+</CenteredLayout>
+
+<style>
+  h1 {
+    color: #a6e3a1;
+  }
+
+  p {
+    color: var(--foreground1);
+    line-height: 1.6;
+    margin-bottom: 0.5lh;
+  }
+
+  strong {
+    color: var(--foreground0);
+    display: block;
+    margin-bottom: 0.5lh;
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5ch;
+    margin-bottom: 1lh;
+  }
+
+  #bio,
+  #skills,
+  #education {
+    margin-top: 1lh;
+  }
+
+  .edu-item {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .edu-item p {
+    margin: 0.25lh 0;
+    font-size: 0.95em;
+  }
+</style>

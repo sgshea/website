@@ -1,23 +1,52 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Sidebar from '../components/Sidebar.astro';
-import TabContainer from '../components/TabContainer.astro';
+import CenteredLayout from '../layouts/CenteredLayout.astro';
+import Link from '../components/Link.astro';
+import { User, Code, Github } from '@lucide/astro';
 ---
 
-<Layout title="Terminal Portfolio">
-  <div class="portfolio-container">
-    <Sidebar />
-    <TabContainer />
-  </div>
-</Layout>
+<CenteredLayout page="home">
+  <header is-="column" gap-="1" space-="px:1">
+    <h2 autofocus>welcome!</h2>
+
+    <p>hi'm sammy, this is my web page!</p>
+
+    <div id="links" box-="square" shear-="top">
+      <row>
+        <span is-="badge" variant-="background0">
+          links
+        </span>
+      </row>
+      <column space-="px:1" is-="typography-block">
+        <Link href="/about">
+          <User size={18} />
+          <span>about me</span>
+        </Link>
+
+        <Link href="/projects">
+          <Code size={18} />
+          <span>projects</span>
+        </Link>
+
+        <Link href="https://github.com/sgshea" target="_blank">
+          <Github size={18} />
+          <span>github</span>
+        </Link>
+      </column>
+    </div>
+  </header>
+</CenteredLayout>
 
 <style>
-  .portfolio-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 1.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
+  #links {
+    margin-top: 1lh;
+  }
+
+  h1 {
+    color: #a6e3a1;
+  }
+
+  p {
+    color: var(--foreground1);
+    line-height: 1.6;
   }
 </style>

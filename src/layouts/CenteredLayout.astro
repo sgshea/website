@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import { Github } from '@lucide/astro';
+
+const { page } = Astro.props;
+---
+
+<Layout>
+  <row self-="grow" align-="start" id="section">
+    <column self-="grow" align-="center">
+      <column gap-="1" space-="" id="main">
+        <Navbar />
+        <column gap-="1" space-="px:2 py:1">
+          <slot />
+        </column>
+
+        <row id="statusline">
+          <span is-="badge" variant-="blue">NORMAL</span>
+          <span is-="badge" variant-="background1">
+            <Github size={16} />
+            <span class="branch-name">main</span>
+          </span>
+          <row self-="grow">
+            <span is-="badge" variant-="background0">{page || 'home'}</span>
+          </row>
+          <span is-="badge" variant-="background0">utf-8</span>
+          <span is-="badge" variant-="background1">
+            <span id="percent">Top</span>
+          </span>
+          <span is-="badge" variant-="blue"><span id="line">1</span>:1</span>
+        </row>
+      </column>
+    </column>
+  </row>
+</Layout>
+
+<style>
+  #statusline {
+    background-color: var(--background0);
+    padding: 0px 0px 0px 0px;
+  }
+
+  #cmdline {
+    background-color: var(--background0);
+    padding: 0;
+  }
+
+  #section {
+    background-color: var(--crust);
+    padding: 2lh 2ch;
+
+    #main {
+      background-color: var(--background0);
+
+      @media not (max-width: 80ch) {
+        width: 80ch;
+      }
+    }
+  }
+
+  header h1 strong {
+    text-decoration: underline;
+    color: #eba0ac;
+  }
+
+  header [tabindex="0"]:focus {
+    background-color: var(--background1);
+  }
+
+  .branch-name {
+    color: #89b4fa;
+  }
+
+  @media (max-width: 80ch) {
+    #statusline,
+    #cmdline {
+      display: none;
+    }
+  }
+</style>
