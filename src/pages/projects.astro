@@ -7,32 +7,32 @@ import { Github } from '@lucide/astro';
 <CenteredLayout page="projects">
   <header is-="column" gap-="1" space-="px:1">
     <h1 autofocus>projects</h1>
-    <p>here are some of my favorite projects i have worked on:</p>
+    <p>a few projects i've enjoyed building.</p>
 
     <column gap-="2" id="projects-list">
       <Link href="https://github.com/sgshea/sandengine" target="_blank" class="project-item">
         <div class="project-header">
           <code>sandengine</code>
         </div>
-        <p class="project-desc">high-performance falling sand simulation with multithreading and rigid body physics using rust and bevy</p>
+        <p class="project-desc">a high-performance falling sand simulation built with Rust and Bevy, with multithreading and rigid-body physics.</p>
       </Link>
 
       <Link href="https://github.com/sgshea/417lang" target="_blank" class="project-item">
         <div class="project-header">
           <code>417 language</code>
         </div>
-        <p class="project-desc">a simple expression-based programming language and parser implementation in rust (class project)</p>
+        <p class="project-desc">an expression-based programming language and parser written in Rust for a class project.</p>
       </Link>
 
       <Link href="https://github.com/sgshea/neat" target="_blank" class="project-item">
         <div class="project-header">
           <code>neat ai library</code>
         </div>
-        <p class="project-desc">a rust library implementing the neat algorithm for artificial intelligence</p>
+        <p class="project-desc">a Rust library implementing the NEAT algorithm for artificial intelligence.</p>
       </Link>
     </column>
 
-    <p style="margin-top: 1lh;">see my git site for more projects!</p>
+    <p style="margin-top: 1lh;">see my github for more.</p>
     <Link href="https://github.com/sgshea" target="_blank">
       <Github size={18} />
       <span>github</span>
@@ -42,10 +42,6 @@ import { Github } from '@lucide/astro';
 </CenteredLayout>
 
 <style>
-  h1 {
-    color: #a6e3a1;
-  }
-
   p {
     color: var(--foreground1);
     line-height: 1.6;

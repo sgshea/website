@@ -1,12 +1,11 @@
 ---
 import CenteredLayout from '../layouts/CenteredLayout.astro';
-import Link from '../components/Link.astro';
 ---
 
 <CenteredLayout page="about">
   <header is-="column" gap-="1" space-="px:1">
     <h1 autofocus>about me</h1>
-    <p>software developer in the united states</p>
+    <p>software developer based in the united states.</p>
 
     <div id="skills" box-="square" shear-="top">
       <row>
@@ -65,7 +64,7 @@ import Link from '../components/Link.astro';
       </row>
       <column space-="px:1" is-="typography-block">
         <div class="edu-item">
-          <strong>B.S. Computer Science</strong>
+          <strong>b.s. in computer science</strong>
           <p>north carolina state university</p>
           <p style="opacity: 0.7;">2021 - 2025</p>
         </div>
@@ -75,10 +74,6 @@ import Link from '../components/Link.astro';
 </CenteredLayout>
 
 <style>
-  h1 {
-    color: #a6e3a1;
-  }
-
   p {
     color: var(--foreground1);
     line-height: 1.6;
